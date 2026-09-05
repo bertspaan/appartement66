@@ -34,6 +34,29 @@ for p in s.glb_primitives:
  mesh.metadata={'source_path':meta.path,'layer':meta.layer,'category':category}
  scenes[category].add_geometry(mesh,node_name=name,geom_name=name)
  records.append({'id':name,'source':meta.path,'layer':meta.layer,'category':category})
+# Restore the two exterior strips excluded by the original interior crop.
+balcony=trimesh.Scene()
+for strip,(xmin,xmax,zmin,zmax) in enumerate([(0,2.05,-10.12,0),(2.05,12.12,-1.85,0)]):
+ for p in s.glb_primitives:
+  v=np.array(p.positions,dtype=float).reshape(-1,3);lo=v.min(0);hi=v.max(0)
+  if hi[0]<=xmin or lo[0]>=xmax or hi[2]<=zmin or lo[2]>=zmax:continue
+  meta=s.mesh_index[p.geom_name]
+  # Balcony stays open to the sky: exclude source ceiling/roof coverings.
+  if any(term in meta.path.lower() for term in ['plafond','roof','dakbedekking']):continue
+  if meta.layer=='IfcOpeningElement':continue
+  mesh=trimesh.Trimesh(v,np.array(p.indices).reshape(-1,3),process=False)
+  for normal,point in [([1,0,0],[xmin,0,0]),([-1,0,0],[xmax,0,0]),([0,0,1],[0,0,zmin]),([0,0,-1],[0,0,zmax])]:
+   mesh=mesh.slice_plane(point,normal)
+   if not len(mesh.faces):break
+  if not len(mesh.faces):continue
+  c=s.gltf_materials[p.material_index].get('pbrMetallicRoughness',{}).get('baseColorFactor',[.75,.75,.75,1])
+  mesh.visual=trimesh.visual.TextureVisuals(material=trimesh.visual.material.PBRMaterial(baseColorFactor=np.array(c),roughnessFactor=.85,metallicFactor=0,doubleSided=True))
+  mesh.vertices-=origin
+  name=f'balcony_{strip}_{p.geom_name}'
+  mesh.metadata={'source_path':meta.path,'layer':meta.layer,'category':'balcony'}
+  balcony.add_geometry(mesh,node_name=name,geom_name=name)
+  records.append({'id':name,'source':meta.path,'layer':meta.layer,'category':'balcony'})
+scenes['balcony']=balcony
 for k,sce in scenes.items():
  sce.export(out/f'{k}.glb');print(k,len(sce.geometry),'bounds',sce.bounds.tolist())
-json.dump({'source':'4e verdieping Eureka.skp','units':'metres','origin':origin.tolist(),'crop':{'x':[2.05,12.12],'z':[-10.12,-1.85]},'interior':{'width':9.32,'depth':7.58,'height':2.62},'status':'Extracted geometry; boundary and fixed services require confirmation against drawings. Bedroom layout is a proposal.','components':records},open(out/'manifest.json','w'),indent=2)
+json.dump({'source':'4e verdieping Eureka.skp','units':'metres','origin':origin.tolist(),'crop':{'x':[2.05,12.12],'z':[-10.12,-1.85]},'balcony':{'source_strips':[[0,2.05,-10.12,0],[2.05,12.12,-1.85,0]],'railing':'Simplified provisional preview in app; not extracted railing geometry'},'interior':{'width':9.32,'depth':7.58,'height':2.62},'status':'Extracted geometry; boundary and fixed services require confirmation against drawings. Bedroom layout is a proposal.','components':records},open(out/'manifest.json','w'),indent=2)

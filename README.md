@@ -1,5 +1,7 @@
 # Eureka apartment studio
 
+Commits and pushes are authorized. Deployment remains a separate manual action.
+
 SvelteKit + Three.js, with static output. All processing is local; there is no runtime account, database, or model upload service.
 
 ## Run
@@ -27,4 +29,49 @@ OpenSKP: https://github.com/iamahsanmehmood/openskp (MIT)
 Three.js: https://github.com/mrdoob/three.js (MIT)
 SvelteKit: https://github.com/sveltejs/kit (MIT)
 
-Optional WebMCP: `configure_apartment_layout`, feature-detected and unregistered when the page closes. A live WebMCP host was not available for contract validation.
+
+## Hand sketch layout
+
+The default layout now follows `PXL_20260905_101619644.jpg`: two bedrooms along the bottom facade, a diagonal bedroom front wall, and a short slanted translucent hallway/living partition. The sliding door control moves the leaf over the fixed panel. Coordinates are traced approximately and stored in `src/lib/sketch-layout.ts`. Bedroom entry positions and frosted material properties are provisional. The original service-core geometry is shown in sketch mode.
+
+## Wraparound balcony
+
+`static/model/balcony.glb` restores the original slab and exterior elements on both exposed sides, using two non-overlapping crop strips recorded in the manifest. This is the corner balcony, not a balcony through the neighbouring apartments. The app adds a provisional 1.10 m glass/metal railing along the outer two edges; its height and design are not taken from verified construction details. Camera framing and walk bounds include the balcony.
+
+The app now displays only the hand-sketched layout. Layout switching and the model-label overlay have been removed; source GLBs are retained for provenance.
+
+## Furniture and divider update
+
+The bedroom divider centre is x=1.94 m, so its 5 cm half-thickness reaches the start of the source window frame at x=1.99 m (43 cm farther right than before). Tip has an approximate 1.04 × 2.10 m loft bunk with toys below. The upright piano is 1.35 m wide and follows the diagonal on the living-room side of the translucent partition. The baby-blue floor lamp follows the supplied articulated-lamp reference; its dimensions are approximate. Dining, bedside and child-room lights are also included and illuminate in evening mode. Furniture is shown by default.
+
+## GitHub Pages
+
+The static adapter outputs `build/`, including `.nojekyll` and a `404.html` fallback. Navigation and GLB URLs respect `BASE_PATH`; local development always uses `/`.
+
+To build for `bertspaan.nl/appartement66`:
+
+```sh
+npm run build
+```
+
+Production defaults to `/appartement66` for `https://bertspaan.nl/appartement66/`. Override `BASE_PATH` only when hosting elsewhere; use an empty value for a domain root.
+
+When you decide to publish:
+
+1. Ensure the desired code is on your GitHub repository.
+2. In Settings → Pages, choose **GitHub Actions** as the build source.
+3. In Actions, select **Publish to GitHub Pages** and click **Run workflow**.
+
+The workflow uses `/appartement66` as the production base path, builds with the existing npm lockfile, and publishes only `build/`. It runs manually, not on pushes. No publishing or remote changes were performed while adding this configuration.
+
+Reference: https://svelte.dev/docs/kit/adapter-static#GitHub-Pages
+
+## Balcony planting
+
+The two balcony rectangles are modelled as 1.00 m tall planters in their source footprints (1.60 × 2.20 m and 2.20 × 1.40 m), with soil, mixed broad-leaved shrubs, grasses and flowers. Plant choices are visual placeholders. Original low landscaping trays are hidden in the app and visible-only exports. The planters remain visible independently of the furniture toggle.
+
+## Sofa
+
+The living-room sofa is a modelled approximation of the FEST Edge 3-seater in anthracite, using the official 254 × 103 × 71 cm dimensions, 43 cm seat height and 62 cm seat depth. Two seat modules, broad arms, low feet and visible seat seams are represented. The exact anthracite fabric is approximate. Source: https://www.festamsterdam.com/products/edge-3-zits-bank
+
+The translucent partition has been shifted approximately 46 cm toward the hallway for piano clearance. Its service-frontage anchor is now (0, -1.90) and its bedroom-wall junction remains an orthogonal projection. The first bedroom entrance moves along the diagonal to clear the junction. The hallway sliding door retains a 1.10 m opening. This remains a proposed layout to check against service-room access on detailed drawings.

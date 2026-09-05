@@ -16,6 +16,23 @@
       -1.85
     ]
   },
+  "balcony": {
+    "source_strips": [
+      [
+        0,
+        2.05,
+        -10.12,
+        0
+      ],
+      [
+        2.05,
+        12.12,
+        -1.85,
+        0
+      ]
+    ],
+    "railing": "Simplified provisional preview in app; not extracted railing geometry"
+  },
   "interior": {
     "width": 9.32,
     "depth": 7.58,
@@ -1222,6 +1239,378 @@
       "source": "ROOT / 43_Vloer_Vloer-x / Isolatie - Kunststof / Component_67385",
       "layer": "IfcBuildingElementPart",
       "category": "existing"
+    },
+    {
+      "id": "balcony_0_mesh_125_ROOT__61_Meterruimte_Object-x__Component_228066_IfcDistributionChamberElement",
+      "source": "ROOT / 61_Meterruimte_Object-x / Component_228066",
+      "layer": "IfcDistributionChamberElement",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_168_ROOT__p1_Natuurlijke_aggregaten,_natuurlijke_vulstoffen_Terreinmaterialen_Vloer-_IfcSlab",
+      "source": "ROOT / p1 Natuurlijke aggregaten, natuurlijke vulstoffen_Terreinmaterialen_Vloer-x / Component_231082",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_426_ROOT__61_Meterruimte_Object-x__Component_213770_IfcDistributionChamberElement",
+      "source": "ROOT / 61_Meterruimte_Object-x / Component_213770",
+      "layer": "IfcDistributionChamberElement",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_609_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_214038_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_214038",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_692_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcSlab",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Vloer-x",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_789_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_67820_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_67820",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_898_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_59666_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_59666",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_900_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_58468_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_58468",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_902_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_58522_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_58522",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_906_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_224420_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_224420",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_910_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_232349_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_232349",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_917_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_237828_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_237828",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_920_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_229872_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_229872",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_922_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_210140_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_210140",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_933_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_208937_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_208937",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_935_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_227733_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_227733",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_945_ROOT__p1_Natuurlijke_aggregaten,_natuurlijke_vulstoffen_Terreinmaterialen_Vloer-_IfcSlab",
+      "source": "ROOT / p1 Natuurlijke aggregaten, natuurlijke vulstoffen_Terreinmaterialen_Vloer-x / Component_240968",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_946_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_232349_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_232349",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_986_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Han_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Handregel-x / Component_58117",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_988_ROOT__34_Reling_Reling-x__o_GLAS_Glas_Paneel-x__Component_63407_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / o GLAS_Glas_Paneel-x / Component_63407",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_989_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Reg_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Regel-x / Component_58117",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_991_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Han_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Handregel-x",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_992_ROOT__34_Reling_Reling-x__o_GLAS_Glas_Paneel-x__Component_78347_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / o GLAS_Glas_Paneel-x / Component_78347",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_993_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Reg_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Regel-x / Component_78374",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1031_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1032_ROOT__34_Reling_Reling-x___Reling_-_baluster___Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1036_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1063_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking___C_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1073_ROOT__34_Reling_Reling-x___Reling_-_baluster___Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1076_ROOT__34_Reling_Reling-x___Reling_-_baluster___Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1077_ROOT__34_Reling_Reling-x___Reling_-_baluster___Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1089_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1090_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1091_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_0_mesh_1092_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_160_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_208937_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_208937",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_174_ROOT__61_Meterruimte_Object-x__Component_228066_IfcDistributionChamberElement",
+      "source": "ROOT / 61_Meterruimte_Object-x / Component_228066",
+      "layer": "IfcDistributionChamberElement",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_180_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_219107_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_219107",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_250_ROOT__p1_Natuurlijke_aggregaten,_natuurlijke_vulstoffen_Terreinmaterialen_Vloer-_IfcSlab",
+      "source": "ROOT / p1 Natuurlijke aggregaten, natuurlijke vulstoffen_Terreinmaterialen_Vloer-x / Component_218912",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_538_ROOT__61_Meterruimte_Object-x__Component_213770_IfcDistributionChamberElement",
+      "source": "ROOT / 61_Meterruimte_Object-x / Component_213770",
+      "layer": "IfcDistributionChamberElement",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_583_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_199220_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_199220",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_670_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_214038_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_214038",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_692_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcSlab",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Vloer-x",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_789_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_67820_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_67820",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_791_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_57334_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_57334",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_793_ROOT__21_Wand_Wand-x__Gevelbekleding_(ver)__Component_57436_IfcCovering",
+      "source": "ROOT / 21_Wand_Wand-x / Gevelbekleding (ver) / Component_57436",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_911_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_224696_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_224696",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_913_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_225514_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_225514",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_914_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_227733_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_227733",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_918_ROOT__p1_Natuurlijke_aggregaten,_natuurlijke_vulstoffen_Terreinmaterialen_Vloer-_IfcSlab",
+      "source": "ROOT / p1 Natuurlijke aggregaten, natuurlijke vulstoffen_Terreinmaterialen_Vloer-x / Component_214502",
+      "layer": "IfcSlab",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_919_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_219107_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_219107",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_924_ROOT__n_KUNSTSTOFFEN,_RUBBERS_Kunststof_Groenvoorziening__Component_224420_IfcCovering",
+      "source": "ROOT / n KUNSTSTOFFEN, RUBBERS_Kunststof_Groenvoorziening / Component_224420",
+      "layer": "IfcCovering",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_986_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Han_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Handregel-x / Component_58117",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_989_ROOT__34_Reling_Reling-x__h3_Staal_legeringen_Metaal_-_bekleding_&_afwerking_Reg_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / h3 Staal legeringen_Metaal - bekleding & afwerking_Regel-x / Component_58117",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_992_ROOT__34_Reling_Reling-x__o_GLAS_Glas_Paneel-x__Component_78347_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / o GLAS_Glas_Paneel-x / Component_78347",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1029_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1039_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1056_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1070_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1072_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1078_ROOT__34_Reling_Reling-x___Reling_-_baluster___Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_ / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
+    },
+    {
+      "id": "balcony_1_mesh_1093_ROOT__34_Reling_Reling-x___Reling_-_baluster_Baluster-x__Component_55230_IfcMember",
+      "source": "ROOT / 34_Reling_Reling-x / _Reling - baluster_Baluster-x / Component_55230",
+      "layer": "IfcMember",
+      "category": "balcony"
     }
   ]
 }
