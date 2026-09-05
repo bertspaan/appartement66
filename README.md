@@ -1,6 +1,6 @@
 # Eureka apartment studio
 
-Commits and pushes are authorized. Deployment remains a separate manual action.
+GitHub Pages deploys automatically on pushes to `apartment-viewer`; manual runs are also available.
 
 SvelteKit + Three.js, with static output. All processing is local; there is no runtime account, database, or model upload service.
 
@@ -60,9 +60,9 @@ When you decide to publish:
 
 1. Ensure the desired code is on your GitHub repository.
 2. In Settings → Pages, choose **GitHub Actions** as the build source.
-3. In Actions, select **Publish to GitHub Pages** and click **Run workflow**.
+3. Push to `apartment-viewer`, or select **Publish to GitHub Pages** in Actions and click **Run workflow**.
 
-The workflow uses `/appartement66` as the production base path, builds with the existing npm lockfile, and publishes only `build/`. It runs manually, not on pushes. No publishing or remote changes were performed while adding this configuration.
+The workflow uses `/appartement66` as the production base path, builds with the existing npm lockfile, and publishes only `build/`. It runs on pushes to `apartment-viewer` and supports manual runs. No publishing or remote changes were performed while adding this configuration.
 
 Reference: https://svelte.dev/docs/kit/adapter-static#GitHub-Pages
 

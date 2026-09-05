@@ -1,7 +1,9 @@
 name: Publish to GitHub Pages
 
-# Publishing is an explicit manual action, never triggered by a push.
+# Deploy the default branch; keep manual deployment available.
 on:
+  push:
+    branches: [apartment-viewer]
   workflow_dispatch:
 
 permissions:
