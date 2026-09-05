@@ -1,0 +1,5 @@
+openskp==1.2.0
+numpy==2.5.2
+trimesh==5.1.0
+scipy==1.18.1
+pillow==12.3.0

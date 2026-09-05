@@ -1,0 +1,1227 @@
+{
+  "source": "4e verdieping Eureka.skp",
+  "units": "metres",
+  "origin": [
+    7.21,
+    0.38,
+    -6.09
+  ],
+  "crop": {
+    "x": [
+      2.05,
+      12.12
+    ],
+    "z": [
+      -10.12,
+      -1.85
+    ]
+  },
+  "interior": {
+    "width": 9.32,
+    "depth": 7.58,
+    "height": 2.62
+  },
+  "status": "Extracted geometry; boundary and fixed services require confirmation against drawings. Bedroom layout is a proposal.",
+  "components": [
+    {
+      "id": "mesh_4_ROOT__56_Expansievat_douche__Component_225541_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225541",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_5_ROOT__56_Expansievat_douche__Component_225634_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225634",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_6_ROOT__56_Expansievat_douche__Component_225709_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225709",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_7_ROOT__56_Expansievat_douche__Component_225634_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225634",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_8_ROOT__56_Expansievat_douche__Component_225709_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225709",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_9_ROOT__56_Expansievat_douche__Component_225784_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_douche / Component_225784",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_24_ROOT____inductiekookplaat__Component_220107_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220107",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_25_ROOT____inductiekookplaat__Component_220326_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220326",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_26_ROOT____inductiekookplaat__Component_220545_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220545",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_27_ROOT____inductiekookplaat__Component_220326_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220326",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_28_ROOT____inductiekookplaat__Component_220764_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220764",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_29_ROOT____inductiekookplaat__Component_220809_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220809",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_30_ROOT____inductiekookplaat__Component_220854_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220854",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_31_ROOT____inductiekookplaat__Component_220764_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220764",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_32_ROOT____inductiekookplaat__Component_220809_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220809",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_33_ROOT____inductiekookplaat__Component_220854_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220854",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_34_ROOT____inductiekookplaat__Component_220764_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220764",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_35_ROOT____inductiekookplaat__Component_220809_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220809",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_36_ROOT____inductiekookplaat__Component_220854_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220854",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_37_ROOT____inductiekookplaat__Component_220764_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220764",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_38_ROOT____inductiekookplaat__Component_220809_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220809",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_39_ROOT____inductiekookplaat__Component_220854_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220854",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_40_ROOT____inductiekookplaat__Component_220887_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220887",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_41_ROOT____inductiekookplaat__Component_220914_IfcBuildingElementProxy",
+      "source": "ROOT / __inductiekookplaat / Component_220914",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_43_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_Wand_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton_Wand-x / Component_222888",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_50_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_222354",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_169_ROOT__73__keuken__Component_230127_IfcBuildingElementProxy",
+      "source": "ROOT / 73__keuken / Component_230127",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_170_ROOT__73__keuken__Component_230154_IfcBuildingElementProxy",
+      "source": "ROOT / 73__keuken / Component_230154",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_171_ROOT__73__keuken__Component_230181_IfcBuildingElementProxy",
+      "source": "ROOT / 73__keuken / Component_230181",
+      "layer": "IfcBuildingElementProxy",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_175_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_214302",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_189_ROOT__32_Deur_merk-x__Component_224113_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_224113",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_190_ROOT__32_Deur_merk-x__Component_208590_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208590",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_191_ROOT__32_Deur_merk-x__Component_208641_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208641",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_192_ROOT__32_Deur_merk-x__Component_208674_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208674",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_193_ROOT__32_Deur_merk-x__Component_224184_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_224184",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_194_ROOT__32_Deur_merk-x__Component_208746_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208746",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_195_ROOT__32_Deur_merk-x__Component_208785_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208785",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_196_ROOT__32_Deur_merk-x__Component_208812_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208812",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_197_ROOT__32_Deur_merk-x__Component_208839_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208839",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_198_ROOT__32_Deur_merk-x__Component_208878_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_208878",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_199_ROOT__32_Deur_merk-x__Component_199957_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199957",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_200_ROOT__32_Deur_merk-x__Component_199947_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199947",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_201_ROOT__32_Deur_merk-x__Component_224211_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_224211",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_202_ROOT__32_Deur_merk-x__Component_224221_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_224221",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_203_ROOT___Generiek_vulmateriaal_Wand-x__Component_226366_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_226366",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_251_ROOT__56_Expansievat_wasbak__Component_236004_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_236004",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_252_ROOT__56_Expansievat_wasbak__Component_236383_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_236383",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_253_ROOT__56_Expansievat_wasbak__Component_217584_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_217584",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_254_ROOT__56_Expansievat_wasbak__Component_217659_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_217659",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_255_ROOT__56_Expansievat_wasbak__Component_217757_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_217757",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_256_ROOT__56_Expansievat_wasbak__Component_217832_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_217832",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_257_ROOT__56_Expansievat_wasbak__Component_217907_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_217907",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_258_ROOT__56_Expansievat_wasbak__Component_218066_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasbak / Component_218066",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_259_ROOT___Generiek_vulmateriaal_ombouw__Component_219344_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_ombouw / Component_219344",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_276_ROOT__32_Deur_merk-x__Component_214065_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_214065",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_277_ROOT__32_Deur_merk-x__Component_210320_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_210320",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_278_ROOT__32_Deur_merk-x__Component_214104_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_214104",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_279_ROOT__32_Deur_merk-x__Component_237772_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_237772",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_283_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_Wand_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton_Wand-x / Component_198138",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_285_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_Wand_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton_Wand-x / Component_198212",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_290_ROOT___Generiek_vulmateriaal_Wand-x__Component_197006_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_197006",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_293_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_Wand_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton_Wand-x / Component_197108",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_299_ROOT___Generiek_vulmateriaal_Wand-x__Component_196802_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_196802",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_302_ROOT__32_Deur_merk-x__Component_199247_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199247",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_303_ROOT__32_Deur_merk-x__Component_199298_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199298",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_304_ROOT__32_Deur_merk-x__Component_199337_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199337",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_305_ROOT__32_Deur_merk-x__Component_199376_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199376",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_306_ROOT__32_Deur_merk-x__Component_199439_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199439",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_402_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_206090",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_423_ROOT__56_Expansievat_spoelbak__Component_205725_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_spoelbak / Component_205725",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_424_ROOT__56_Expansievat_spoelbak__Component_205847_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_spoelbak / Component_205847",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_436_ROOT__32_Deur_merk-x__Component_205210_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205210",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_437_ROOT__32_Deur_merk-x__Component_205261_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205261",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_438_ROOT__32_Deur_merk-x__Component_205300_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205300",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_439_ROOT__32_Deur_merk-x__Component_205339_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205339",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_440_ROOT__32_Deur_merk-x__Component_205402_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205402",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_478_ROOT__32_Deur_merk-x__Component_205210_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205210",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_479_ROOT__32_Deur_merk-x__Component_205261_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205261",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_480_ROOT__32_Deur_merk-x__Component_205300_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205300",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_481_ROOT__32_Deur_merk-x__Component_205339_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205339",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_482_ROOT__32_Deur_merk-x__Component_205402_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_205402",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_524_ROOT__56_Expansievat_wasmachine__Component_212956_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_212956",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_525_ROOT__56_Expansievat_wasmachine__Component_213055_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213055",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_526_ROOT__56_Expansievat_wasmachine__Component_213202_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213202",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_527_ROOT__56_Expansievat_wasmachine__Component_213276_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213276",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_528_ROOT__56_Expansievat_wasmachine__Component_213276_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213276",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_529_ROOT__56_Expansievat_wasmachine__Component_213286_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213286",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_530_ROOT__56_Expansievat_wasmachine__Component_213296_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213296",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_531_ROOT__56_Expansievat_wasmachine__Component_213323_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213323",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_532_ROOT__56_Expansievat_wasmachine__Component_213350_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213350",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_533_ROOT__56_Expansievat_wasmachine__Component_213360_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213360",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_534_ROOT__56_Expansievat_wasmachine__Component_213387_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213387",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_535_ROOT__56_Expansievat_wasmachine__Component_213387_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213387",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_536_ROOT__56_Expansievat_wasmachine__Component_213387_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213387",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_537_ROOT__56_Expansievat_wasmachine__Component_213387_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_wasmachine / Component_213387",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_559_ROOT__56_Expansievat_toilet__Component_215035_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215035",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_560_ROOT__56_Expansievat_toilet__Component_215062_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215062",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_561_ROOT__56_Expansievat_toilet__Component_215173_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215173",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_562_ROOT__56_Expansievat_toilet__Component_215431_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215431",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_563_ROOT__56_Expansievat_toilet__Component_215692_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215692",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_564_ROOT__56_Expansievat_toilet__Component_215950_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_215950",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_565_ROOT__56_Expansievat_toilet__Component_216283_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_216283",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_566_ROOT__56_Expansievat_toilet__Component_216480_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_216480",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_567_ROOT__56_Expansievat_toilet__Component_216531_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_216531",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_568_ROOT__56_Expansievat_toilet__Component_216552_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_216552",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_569_ROOT__56_Expansievat_toilet__Component_216579_IfcFlowStorageDevice",
+      "source": "ROOT / 56_Expansievat_toilet / Component_216579",
+      "layer": "IfcFlowStorageDevice",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_586_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_222354",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_591_ROOT___Generiek_vulmateriaal_Wand-x__Component_203382_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_203382",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_618_ROOT__32_Deur_merk-x__Component_244522_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_244522",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_619_ROOT__32_Deur_merk-x__Component_199298_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199298",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_620_ROOT__32_Deur_merk-x__Component_199337_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199337",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_621_ROOT__32_Deur_merk-x__Component_244573_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_244573",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_622_ROOT__32_Deur_merk-x__Component_244636_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_244636",
+      "layer": "IfcDoor",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_633_ROOT___Generiek_vulmateriaal_Wand-x__Component_219290_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_219290",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_690_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_Vloe_IfcSlab",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton_Vloer-x / Component_241024",
+      "layer": "IfcSlab",
+      "category": "floor"
+    },
+    {
+      "id": "mesh_692_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcSlab",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Vloer-x",
+      "layer": "IfcSlab",
+      "category": "floor"
+    },
+    {
+      "id": "mesh_696_ROOT___Generiek_vulmateriaal_Wand-x__Component_222327_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_222327",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_697_ROOT__f1_Gebonden_met_kalk_Steen_-_gefabriceerd_Wand-x__Component_233798_IfcWall",
+      "source": "ROOT / f1 Gebonden met kalk_Steen - gefabriceerd_Wand-x / Component_233798",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_715_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_222354",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_718_ROOT__31_Raam_Merk-x__Component_230235_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230235",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_719_ROOT__31_Raam_Merk-x__Component_206249_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_206249",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_720_ROOT__31_Raam_Merk-x__Component_206306_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_206306",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_721_ROOT__31_Raam_Merk-x__Component_230286_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230286",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_722_ROOT__31_Raam_Merk-x__Component_230325_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230325",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_723_ROOT__31_Raam_Merk-x__Component_206477_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_206477",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_724_ROOT__31_Raam_Merk-x__Component_230400_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230400",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_725_ROOT__31_Raam_Merk-x__Component_230410_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230410",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_726_ROOT__31_Raam_Merk-x__Component_206524_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_206524",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_727_ROOT__31_Raam_Merk-x__Component_206524_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_206524",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_728_ROOT__31_Raam_Merk-x__Component_230420_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230420",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_729_ROOT__31_Raam_Merk-x__Component_230420_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230420",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_730_ROOT__31_Raam_Merk-x__Component_230459_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230459",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_731_ROOT__31_Raam_Merk-x__Component_230469_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_230469",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_732_ROOT__31_Raam_Merk-x__Component_214441_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214441",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_733_ROOT__31_Raam_Merk-x__Component_214431_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214431",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_746_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_206090",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_747_ROOT__31_Raam_Merk-x__Component_204741_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204741",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_748_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_749_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_750_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_751_ROOT__31_Raam_Merk-x__Component_204819_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204819",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_752_ROOT__31_Raam_Merk-x__Component_204870_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204870",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_753_ROOT__31_Raam_Merk-x__Component_204880_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204880",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_754_ROOT__31_Raam_Merk-x__Component_204870_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204870",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_755_ROOT__31_Raam_Merk-x__Component_204880_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204880",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_756_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_226393",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_771_ROOT__31_Raam_Merk-x__Component_214329_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214329",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_772_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_773_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_774_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_775_ROOT__31_Raam_Merk-x__Component_214380_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214380",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_776_ROOT__31_Raam_Merk-x__Component_214431_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214431",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_777_ROOT__31_Raam_Merk-x__Component_214441_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214441",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_778_ROOT__31_Raam_Merk-x__Component_214431_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214431",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_779_ROOT__31_Raam_Merk-x__Component_214441_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_214441",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_783_ROOT__21_Wand_Wand-x__Isolatie_-_Steenwol_zacht__Component_47923_IfcBuildingElementPart",
+      "source": "ROOT / 21_Wand_Wand-x / Isolatie - Steenwol zacht / Component_47923",
+      "layer": "IfcBuildingElementPart",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_794_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_206090",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_813_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_214302",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_833_ROOT__32_Deur_merk-x__Component_218542_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218542",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_834_ROOT__32_Deur_merk-x__Component_199620_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199620",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_835_ROOT__32_Deur_merk-x__Component_218613_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218613",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_836_ROOT__32_Deur_merk-x__Component_218646_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218646",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_837_ROOT__32_Deur_merk-x__Component_218691_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218691",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_838_ROOT__32_Deur_merk-x__Component_218718_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218718",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_839_ROOT__32_Deur_merk-x__Component_199815_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199815",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_840_ROOT__32_Deur_merk-x__Component_199842_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199842",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_841_ROOT__32_Deur_merk-x__Component_199869_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199869",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_842_ROOT__32_Deur_merk-x__Component_199908_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199908",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_843_ROOT__32_Deur_merk-x__Component_199947_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199947",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_844_ROOT__32_Deur_merk-x__Component_199957_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_199957",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_845_ROOT__32_Deur_merk-x__Component_218757_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218757",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_846_ROOT__32_Deur_merk-x__Component_218767_IfcDoor",
+      "source": "ROOT / 32_Deur_merk-x / Component_218767",
+      "layer": "IfcDoor",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_854_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_200419",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_857_ROOT__31_Raam_Merk-x__Component_204741_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204741",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_858_ROOT__31_Raam_Merk-x__Component_223819_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_223819",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_859_ROOT__31_Raam_Merk-x__Component_223876_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_223876",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_860_ROOT__31_Raam_Merk-x__Component_232196_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_232196",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_861_ROOT__31_Raam_Merk-x__Component_232235_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_232235",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_862_ROOT__31_Raam_Merk-x__Component_204792_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204792",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_863_ROOT__31_Raam_Merk-x__Component_221559_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_221559",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_864_ROOT__31_Raam_Merk-x__Component_221549_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_221549",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_865_ROOT__31_Raam_Merk-x__Component_224047_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_224047",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_866_ROOT__31_Raam_Merk-x__Component_224047_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_224047",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_867_ROOT__31_Raam_Merk-x__Component_232310_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_232310",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_868_ROOT__31_Raam_Merk-x__Component_232310_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_232310",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_869_ROOT__31_Raam_Merk-x__Component_221618_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_221618",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_870_ROOT__31_Raam_Merk-x__Component_221608_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_221608",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_871_ROOT__31_Raam_Merk-x__Component_204870_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204870",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_872_ROOT__31_Raam_Merk-x__Component_204880_IfcWindow",
+      "source": "ROOT / 31_Raam_Merk-x / Component_204880",
+      "layer": "IfcWindow",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_875_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_200419",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_876_ROOT__f2-_Met_cement_gebonden_producten_(alle_vulmiddelen)_Constructiebeton_-_pr_IfcWall",
+      "source": "ROOT / f2- Met cement gebonden producten (alle vulmiddelen)_Constructiebeton - prefab_Wand-x / Component_200419",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_897_ROOT__21_Wand_Wand-x__Isolatie_-_Steenwol_zacht__Component_47033_IfcBuildingElementPart",
+      "source": "ROOT / 21_Wand_Wand-x / Isolatie - Steenwol zacht / Component_47033",
+      "layer": "IfcBuildingElementPart",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_904_ROOT__i4_In_lagen_verlijmd_hout_Timmerwerk_bekleding_&_afwerking_Wand-x__Compone_IfcWall",
+      "source": "ROOT / i4 In lagen verlijmd hout_Timmerwerk bekleding & afwerking_Wand-x / Component_214302",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_908_ROOT__f1_Gebonden_met_kalk_Steen_-_gefabriceerd_Wand-x__Component_205483_IfcWall",
+      "source": "ROOT / f1 Gebonden met kalk_Steen - gefabriceerd_Wand-x / Component_205483",
+      "layer": "IfcWall",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_938_ROOT___Generiek_vulmateriaal_Wand-x__Component_216684_IfcWall",
+      "source": "ROOT / _Generiek vulmateriaal_Wand-x / Component_216684",
+      "layer": "IfcWall",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_949_ROOT__f7_Vormvaste_grondstoffen,_gebonden_met_gips_Gips_afscheiding_ombouw__Comp_IfcSlab",
+      "source": "ROOT / f7 Vormvaste grondstoffen, gebonden met gips_Gips afscheiding_ombouw / Component_207089",
+      "layer": "IfcSlab",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_1217_ROOT__43_Vloer_Vloer-x__Cement_-_dekvloer__Component_68155_IfcCovering",
+      "source": "ROOT / 43_Vloer_Vloer-x / Cement - dekvloer / Component_68155",
+      "layer": "IfcCovering",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_1219_ROOT__43_Vloer_Vloer-x__Cement_-_dekvloer__Component_60635_IfcCovering",
+      "source": "ROOT / 43_Vloer_Vloer-x / Cement - dekvloer / Component_60635",
+      "layer": "IfcCovering",
+      "category": "existing"
+    },
+    {
+      "id": "mesh_1222_ROOT__43_Vloer_Vloer-x__Isolatie_-_Kunststof__Component_73389_IfcBuildingElementPart",
+      "source": "ROOT / 43_Vloer_Vloer-x / Isolatie - Kunststof / Component_73389",
+      "layer": "IfcBuildingElementPart",
+      "category": "shell"
+    },
+    {
+      "id": "mesh_1224_ROOT__43_Vloer_Vloer-x__Isolatie_-_Kunststof__Component_67385_IfcBuildingElementPart",
+      "source": "ROOT / 43_Vloer_Vloer-x / Isolatie - Kunststof / Component_67385",
+      "layer": "IfcBuildingElementPart",
+      "category": "existing"
+    }
+  ]
+}
