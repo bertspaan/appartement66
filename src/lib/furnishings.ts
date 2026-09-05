@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {sketch} from './sketch-layout';
+import {sketch,getInstrumentPlacement} from './sketch-layout';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 // Approximate furniture dimensions in metres, to be checked against owned pieces.
@@ -10,7 +10,7 @@ function ball(parent:T.Object3D,x:number,y:number,z:number,r:number,color:string
 function rod(parent:T.Object3D,a:T.Vector3,b:T.Vector3,r:number,color:string){const o=mesh(parent,new T.CylinderGeometry(r,r,a.distanceTo(b),12),material(color,.3));o.position.copy(a).add(b).multiplyScalar(.5);o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),b.clone().sub(a).normalize());return o;}
 
 export function addTipBed(parent:T.Group){
- const group=new T.Group();group.name='Tip — loft bunk with toys';group.position.set(3.96,0,2.37);parent.add(group);
+ const group=new T.Group();group.name='Tip — loft bunk with toys';group.position.set(2.53,0,2.37);group.rotation.y=Math.PI;parent.add(group);
  const wood='#d3b387',paint='#b8ced0';
  for(const x of [-.49,.49])for(const z of [-1,1])box(group,x,.94,z,.065,1.88,.065,wood);
  box(group,0,1.43,0,1.04,.14,2.10,wood);box(group,0,1.56,0,.94,.16,1.99,'#fff4e5');
@@ -34,7 +34,7 @@ export function addTipBed(parent:T.Group){
 }
 
 export function addPiano(parent:T.Group){
- const group=new T.Group();group.name='Upright piano';group.position.set(-.153,0,.397);group.rotation.y=Math.atan2(sketch.bedroomFrontLeft[1]-sketch.bedroomFrontRight[1],sketch.bedroomFrontRight[0]-sketch.bedroomFrontLeft[0]);parent.add(group);
+ const group=new T.Group();group.name='Upright piano';const placement=getInstrumentPlacement();group.position.set(placement.x,0,placement.z);group.rotation.y=placement.rotation;parent.add(group);
  const black='#25282a',wood='#36302b';
  box(group,0,.62,.09,1.35,1.22,.36,black);box(group,0,1.245,.09,1.39,.045,.40,wood);
  box(group,0,.755,-.17,1.35,.075,.29,black);box(group,0,.42,-.01,1.27,.55,.06,wood);
@@ -191,7 +191,7 @@ export function addKitchenAppliances(parent:T.Group){
 
 export function addNordElectro(parent:T.Group){
  const group=new T.Group();group.name='Nord Electro with monitor speakers';
- group.position.set(-.153,0,.397);group.rotation.y=Math.atan2(sketch.bedroomFrontLeft[1]-sketch.bedroomFrontRight[1],sketch.bedroomFrontRight[0]-sketch.bedroomFrontLeft[0]);parent.add(group);
+ const placement=getInstrumentPlacement();group.position.set(placement.x,0,placement.z);group.rotation.y=placement.rotation;parent.add(group);
  // Official case dimensions: 1066 × 104 × 294 mm. Stand and stool are approximate.
  // https://www.nordkeyboards.com/products/nord-electro-7/specifications/
  const red='#bc2635',black='#25292b';

@@ -79,7 +79,7 @@ export function addCounterAppliances(parent:T.Group){
  return group;
 }
 export function addTipAnimals(parent:T.Group){
- const group=new T.Group();group.name='Tip stuffed animals from photographs';group.position.set(3.96,.035,2.37);parent.add(group);
+ const group=new T.Group();group.name='Tip stuffed animals from photographs';group.position.set(2.53,.035,2.37);group.rotation.y=Math.PI;parent.add(group);
  const dog=new T.Group();dog.name='Black dog with colourful sweater';dog.position.set(-.15,.04,-.34);group.add(dog);
  ellipsoid(dog,0,.14,0,.13,.13,.25,'#181c22');
  ellipsoid(dog,0,.18,-.28,.13,.11,.16,'#151a21');

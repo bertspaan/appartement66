@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {base} from '$app/paths';
-import {sketch} from './sketch-layout';
+import {sketch,getInstrumentPlacement} from './sketch-layout';
 
 export async function addPaintings(parent:T.Group){
  const group=new T.Group();group.name='Family paintings';
@@ -10,7 +10,8 @@ export async function addPaintings(parent:T.Group){
  const a=sketch.bedroomFrontLeft,b=sketch.bedroomFrontRight;
  const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);
  // Project the piano centre onto the diagonal wall, then clear its living-room face.
- const t=((-.153-a[0])*dx+(.397-a[1])*dz)/(length*length);
+ const piano=getInstrumentPlacement();
+ const t=((piano.x-a[0])*dx+(piano.z-a[1])*dz)/(length*length);
  const specs=[{width:.75,height:1,x:a[0]-.068,y:1.65,z:2.50,rotation:-Math.PI/2,frame:.018,color:'#e6dfcb'},
   {width:.52,height:.52,x:a[0]+t*dx+dz/length*.068,y:1.85,z:a[1]+t*dz-dx/length*.068,
    rotation:Math.PI-Math.atan2(dz,dx),frame:.075,color:'#99968b'},

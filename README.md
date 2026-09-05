@@ -75,3 +75,15 @@ The two balcony rectangles are modelled as 1.00 m tall planters in their source 
 The living-room sofa is a modelled approximation of the FEST Edge 3-seater in anthracite, using the official 254 × 103 × 71 cm dimensions, 43 cm seat height and 62 cm seat depth. Two seat modules, broad arms, low feet and visible seat seams are represented. The exact anthracite fabric is approximate. Source: https://www.festamsterdam.com/products/edge-3-zits-bank
 
 The translucent partition has been shifted approximately 46 cm toward the hallway for piano clearance. Its service-frontage anchor is now (0, -1.90) and its bedroom-wall junction remains an orthogonal projection. The first bedroom entrance moves along the diagonal to clear the junction. The hallway sliding door retains a 1.10 m opening. This remains a proposed layout to check against service-room access on detailed drawings.
+
+## Update the social preview
+
+```sh
+npm run preview:image
+```
+
+This starts a temporary local Vite server, opens `/preview-render/` in headless **Google Chrome installed on macOS**, waits for the model to render, and replaces `static/og-apartment.jpg` with a 1200 × 630 JPEG. It closes its browser and server afterwards and leaves an existing dev server alone. No separate browser download is needed; `playwright-core` controls the installed Chrome using a temporary profile. If Chrome is installed somewhere else, set `CHROME_PATH` to its executable.
+
+Run the command after changing the model and before building or committing the updated preview. It does not commit or publish anything. If rendering fails, the previous image is preserved.
+
+The permanent render page is also available at `/preview-render/` under the site's base path (production: `/appartement66/preview-render/`). It uses the same initial camera as the app and keeps the enlarged composition with the title and logo. Edit `src/routes/preview-render/+page.svelte` to change its framing or furniture options.

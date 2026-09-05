@@ -1,3 +1,5 @@
+import {addTipMarbleRun} from './marble-run';
+import {addTipToyCabinet} from './toy-cabinet';
 import * as T from 'three';
 import {separateInteriorSurfaces} from './geometry-clearance';
 import {base} from '$app/paths';
@@ -12,7 +14,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {PointerLockControls} from 'three/addons/controls/PointerLockControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
-export type Options={floor:string;light:string;furniture:boolean;doorOpen:number;instrument:'upright'|'nord';tipAge:'child'|'teen'};
+export type Options={floor:string;light:string;furniture:boolean;doorOpen:number;hallwayWall:boolean;instrument:'upright'|'nord';tipAge:'child'|'teen'};
 export async function createApartment(host:HTMLElement,onState:(message:string)=>void){
  const scene=new T.Scene();scene.background=new T.Color('#e9edf0');
  const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;host.append(renderer.domElement);
@@ -55,8 +57,8 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  (finish.material as T.MeshStandardMaterial).color.set(o.floor==='oak'?'#b58d60':o.floor==='concrete'?'#b8b8b3':'#73523e');
  hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;scene.background=new T.Color(o.light==='evening'?'#303943':'#e9edf0');lamps.setEvening(o.light==='evening');balconyLights.setEvening(o.light==='evening');
  clear(partitions);clear(furniture);
- addSketchLayout(partitions,o.doorOpen);
- addOwnedBed(furniture);if(o.tipAge==='teen')addTipTeenRoom(furniture);else{addTipBed(furniture);addTipAnimals(furniture);}if(o.instrument==='nord')addNordElectro(furniture);else addPiano(furniture);
+ addSketchLayout(partitions,o.doorOpen,o.hallwayWall);
+ addOwnedBed(furniture);if(o.tipAge==='teen')addTipTeenRoom(furniture);else{addTipBed(furniture);addTipAnimals(furniture);addTipToyCabinet(furniture);addTipMarbleRun(furniture);}if(o.instrument==='nord')addNordElectro(furniture);else addPiano(furniture);
  addFestEdgeSofa(furniture);addColumnBookshelves(furniture);
  box(furniture,-2.8,.23,2.05,.65,.1,1.1,'#8c6245');addBalconyBistroTable(furniture);addKitchenIsland(furniture);addDiningTable(furniture);addKitchenAppliances(furniture);addCounterAppliances(furniture);
 

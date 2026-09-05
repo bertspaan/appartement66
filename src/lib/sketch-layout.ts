@@ -2,10 +2,14 @@ import * as T from 'three';
 type Point = readonly [number, number];
 // Metres in the imported apartment's coordinate system. Traced approximately
 // from PXL_20260905_101619644.jpg, using the facade and service core as anchors.
+// 30 cm clear along the exterior wall from the entrance jamb at z=-.84.
+// Include the 10 cm partition thickness at its oblique intersection.
+let bedroomFrontRightZ=-.54;
+for(let i=0;i<10;i++)bedroomFrontRightZ=-.84+.30+.05*Math.hypot(5.76,bedroomFrontRightZ-.95)/5.76;
 export const sketch = {
  // Facade concrete pier ends at x=-1.01; the full wall width lands on concrete.
  bedroomFrontLeft: [-1.10, .95] as Point,
- bedroomFrontRight: [4.66, -.81] as Point,
+ bedroomFrontRight: [4.66, bedroomFrontRightZ] as Point,
  // Source window frame begins at x=1.99; 10 cm wall ends exactly before it.
  bedroomDividerX: 1.94,
  // Shifted toward the hallway for more piano clearance; remains on the core frontage.
@@ -19,7 +23,8 @@ export function getHallwayEnd(): Point {
  const t=((start[0]-a[0])*dx+(start[1]-a[1])*dz)/(dx*dx+dz*dz);
  return [a[0]+t*dx,a[1]+t*dz];
 }
-export function addSketchLayout(group:T.Group,open:number){
+export function addSketchLayout(group:T.Group,open:number,hallwayWall=true){
+ group.name='Room layout from hand sketch';
  const height=2.62;
  function segment(a:Point,b:Point,thickness=.1,h=height,y=h/2,material?:T.Material){
   const dx=b[0]-a[0],dz=b[1]-a[1];
@@ -30,13 +35,14 @@ export function addSketchLayout(group:T.Group,open:number){
  const length=Math.hypot(b[0]-a[0],b[1]-a[1]);
  const along=(distance:number):Point=>[a[0]+(b[0]-a[0])*distance/length,a[1]+(b[1]-a[1])*distance/length];
  // Two provisional bedroom entrances in the diagonal front wall.
- const doors=[[1.88,2.73],[3.10,3.95]];
+ const doors=[[1.88,2.73],[3.40,4.25]];
  let cursor=0;
  for(const [start,end] of doors){segment(along(cursor),along(start));segment(along(start),along(end),.1,.47,2.385);cursor=end;}
  segment(along(cursor),b);
  segment(a,[a[0],3.79]);
  const dividerZ=a[1]+(b[1]-a[1])*(sketch.bedroomDividerX-a[0])/(b[0]-a[0]);
  segment([sketch.bedroomDividerX,dividerZ],[sketch.bedroomDividerX,3.79]);
+ if(!hallwayWall)return;
  const end=getHallwayEnd(),start=sketch.hallwayStart;
  const dx=end[0]-start[0],dz=end[1]-start[1],len=Math.hypot(dx,dz);
  const at=(distance:number,offset=0):Point=>[start[0]+dx/len*distance-dz/len*offset,start[1]+dz/len*distance+dx/len*offset];
@@ -54,4 +60,12 @@ export function addSketchLayout(group:T.Group,open:number){
  for(const s of [leafStart,leafEnd])segment(at(s+travel-.012,.065),at(s+travel+.012,.065),.045,2.46,1.245,frame());
  segment(at(leafStart+.12+travel,.10),at(leafStart+.15+travel,.10),.035,.25,1.12,frame());
  group.name='Room layout from hand sketch';
+}
+
+// Keep either instrument against the changing diagonal, with clearance behind it.
+export function getInstrumentPlacement(){
+ const a=sketch.bedroomFrontLeft,b=sketch.bedroomFrontRight;
+ const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);
+ const along=.98,offset=.38;
+ return {x:a[0]+dx/length*along+dz/length*offset,z:a[1]+dz/length*along-dx/length*offset,rotation:-Math.atan2(dz,dx)};
 }
