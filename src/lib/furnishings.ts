@@ -1,4 +1,5 @@
 import {addBuchardtS400} from './buchardt-speakers';
+import {addHegelH120} from './hegel-amplifier';
 import {addTeenPosters} from './teen-posters';
 import * as T from 'three';
 import {sketch,getInstrumentPlacement} from './sketch-layout';
@@ -58,10 +59,12 @@ export function addLamps(parent:T.Group){
  const lights:T.Light[]=[];const bulbs:T.MeshStandardMaterial[]=[];
  function glow(){const m=new T.MeshStandardMaterial({color:'#fff4d7',emissive:'#ffd59a',emissiveIntensity:0,roughness:.4});bulbs.push(m);return m;}
  // Baby-blue articulated floor lamp, matching the reference silhouette.
- const floor=new T.Group();floor.name='Baby-blue articulated floor lamp';floor.position.set(-4.44,0,3.40);floor.rotation.y=Math.PI/2;group.add(floor);
- const blue='#a8d2e9';mesh(floor,new T.CylinderGeometry(.18,.20,.045,32),material(blue,.35),0,.04,0);
+ const floor=new T.Group();floor.name='Baby-blue articulated floor lamp';floor.position.set(-1.55,0,1.10);floor.rotation.y=Math.PI/2-Math.PI/12;group.add(floor);
+ // Low foot tucks slightly under the sofa's room-side end; the shade reaches over the seat.
+ const blue='#a8d2e9';mesh(floor,new T.CylinderGeometry(.18,.20,.018,32),material(blue,.35),0,.031,0);
  mesh(floor,new T.SphereGeometry(.075,20,12,0,Math.PI*2,0,Math.PI/2),material(blue,.35),0,.065,0);
- const joints=[[0,.14,0],[.30,.47,0],[-.035,.79,0],[.23,1.18,0],[-.13,1.68,0]].map(p=>new T.Vector3(...p as [number,number,number]));
+ // Fold the rear-facing elbows in to clear the window facades.
+ const joints=[[0,.14,0],[.12,.47,0],[-.035,.79,0],[.12,1.18,0],[-.20,1.68,0]].map(p=>new T.Vector3(...p as [number,number,number]));
  for(let i=0;i<joints.length-1;i++)rod(floor,joints[i],joints[i+1],.013,blue);
  for(const p of joints){const hinge=mesh(floor,new T.CylinderGeometry(.033,.033,.043,18),material(blue,.4),p.x,p.y,p.z);hinge.rotation.x=Math.PI/2;ball(floor,p.x,p.y,p.z-.025,.011,'#5b6972');}
  const head=new T.Group();head.position.copy(joints.at(-1)!);head.rotation.z=-.45;floor.add(head);
@@ -112,8 +115,8 @@ export function addFestEdgeSofa(parent:T.Group){
  // seat depth 62 cm. Upholstery and seam details are an approximation.
  // Source: https://www.festamsterdam.com/products/edge-3-zits-bank
  const group=new T.Group();group.name='FEST Edge 3-seater — anthracite';
- // Back and end sit 2 cm clear of the bedroom wall and window facade.
- group.position.set(sketch.bedroomFrontLeft[0]-.585,0,2.50);group.rotation.y=Math.PI/2;parent.add(group);
+ // Back and end against the partition and facade, with 1 mm clearance at each wall.
+ group.position.set(sketch.bedroomFrontLeft[0]-.566,0,2.519);group.rotation.y=Math.PI/2;parent.add(group);
  const fabric=new T.MeshPhysicalMaterial({color:'#373b3e',roughness:.95,sheen:.45,sheenColor:'#5b6063',sheenRoughness:.85});
  const seam=new T.MeshStandardMaterial({color:'#505558',roughness:1});
  function cushion(x:number,y:number,z:number,w:number,h:number,d:number,r=.022){return mesh(group,new RoundedBoxGeometry(w,h,d,3,r),fabric,x,y,z);}
@@ -133,6 +136,29 @@ export function addFestEdgeSofa(parent:T.Group){
  return group;
 }
 
+export function addOwnedArmchair(parent:T.Group){
+ const chair=new T.Group();chair.name='Owned wooden armchair with yellow cushions';
+ // Former desk corner, angled toward the sofa and clear of both window facades.
+ chair.position.set(-4.35,0,3.25);
+ chair.rotation.y=Math.atan2(sketch.bedroomFrontLeft[0]-.566-chair.position.x,2.519-chair.position.z);parent.add(chair);
+ const wood=material('#885c34');
+ const yellow=new T.MeshPhysicalMaterial({color:'#e3b52f',roughness:.93,sheen:.35,sheenColor:'#f3cd62'});
+ function timber(x:number,y:number,z:number,w:number,h:number,d:number){return mesh(chair,new RoundedBoxGeometry(w,h,d,2,.008),wood,x,y,z);}
+ for(const x of [-.325,.325]){
+  for(const z of [-.29,.29])timber(x,.235,z,.045,.43,.055);
+  timber(x,.32,0,.045,.065,.68);
+  timber(x,.655,0,.095,.045,.77);
+  for(const z of [-.24,-.08,.08,.24])timber(x,.49,z,.025,.30,.025);
+ }
+ timber(0,.345,0,.64,.055,.66);
+ // Tall, slightly reclined back, with the frame visible around the cushion.
+ const back=new T.Group();back.position.set(0,.39,-.28);back.rotation.x=-.18;chair.add(back);
+ mesh(back,new RoundedBoxGeometry(.65,.72,.045,2,.01),wood,0,.34,-.035);
+ mesh(back,new RoundedBoxGeometry(.59,.68,.13,3,.035),yellow,0,.34,.035);
+ mesh(chair,new RoundedBoxGeometry(.60,.14,.62,3,.035),yellow,0,.435,.04);
+ return chair;
+}
+
 export function addColumnBookshelves(parent:T.Group){
  // Source columns: x=-4.66 interior face, z=[-1.522,-.986] and [1.134,1.670].
  // Keep the 52 cm cabinets inside each 53.6 cm pier, clear of adjacent glazing.
@@ -144,14 +170,19 @@ export function addColumnBookshelves(parent:T.Group){
   box(cabinet,0,1.25,-.14,.52,2.50,.02,oak);
   for(const x of [-.248,.248])box(cabinet,x,1.25,0,.024,2.50,.30,edge);
   box(cabinet,0,.045,0,.47,.09,.27,oak);
-  for(const y of [.10,.48,.88,1.28,1.68,2.08,2.488])box(cabinet,0,y,0,.472,.024,.30,edge);
+  for(const y of [.10,.48,.88,1.28,1.68,2.08,2.488]){
+   const amplifierShelf=index===1&&y===.88;
+   box(cabinet,0,y,amplifierShelf?.05:0,.472,.024,amplifierShelf?.40:.30,edge);
+  }
   // Closed storage at the bottom, open adjustable shelves above.
   box(cabinet,0,.29,.151,.466,.35,.022,oak);
   box(cabinet,0,.425,.168,.10,.012,.015,'#675c4e');
   const colors=['#627e84','#b46752','#e4d8bb','#555f53','#bda15e','#796a80'];
   for(let row=0;row<5;row++){
    const shelf=.492+row*.40;
-   if(row===2){
+   if(index===1&&row===1){
+    addHegelH120(cabinet,shelf);
+   }else if(row===2){
     addBuchardtS400(cabinet,shelf);
    }else{
     for(let i=0;i<7;i++){
@@ -324,7 +355,7 @@ export function addBalconyBistroTable(parent:T.Group){
  // Flush cover for the central parasol/candle-holder opening.
  mesh(group,new T.CylinderGeometry(.021,.021,.002,24),material('#93a58e',.25),0,.761,0);
  // Table sits 2 cm from the glass; chairs sit beside it and on the apartment side.
- for(const [x,z] of [[-.67,0],[.67,0],[0,-.60]]){
+ for(const [x,z] of [[-.55,0],[.55,0],[0,-.50]]){
   addBalconyChair(group,x,z,Math.atan2(x,z));
  }
  return group;
@@ -358,8 +389,8 @@ export function addRectangularBalconyTable(parent:T.Group){
  for(const x of [-.31,.31])box(group,x,.69,0,.025,.04,1.24,green);
  for(const z of [-.60,.60])box(group,0,.69,z,.65,.04,.025,green);
  // Chairs at both ends and on the apartment side; none between table and glass.
- addBalconyChair(group,0,-1.03,Math.PI);
- addBalconyChair(group,0,1.03,0);
- addBalconyChair(group,.57,0,Math.PI/2);
+ addBalconyChair(group,0,-.89,Math.PI);
+ addBalconyChair(group,0,.89,0);
+ addBalconyChair(group,.47,0,Math.PI/2);
  return group;
 }

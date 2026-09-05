@@ -1,4 +1,7 @@
 import {addEntranceFurniture} from './entrance-furniture';
+import {addStandingDesk} from './standing-desk';
+import {addKitchenRack} from './kitchen-rack';
+import {addOwnedArmchair} from './furnishings';
 import {optimizeScene} from './optimize-scene';
 import {addStorageShelves} from './storage-shelves';
 import {loadChildPosterTextures,addChildPosters} from './child-posters';
@@ -83,8 +86,8 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   setWoodenDoorsOpen(model,o.doorsOpen);
   if(!previous){
    const fixed=new T.Group();fixed.name='Fixed furniture';furniture.add(fixed);
-   addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);addColumnBookshelves(fixed);
-   box(fixed,-2.8,.23,2.05,.65,.1,1.1,'#8c6245');addBalconyBistroTable(fixed);addRectangularBalconyTable(fixed);addKitchenIsland(fixed);addDiningTable(fixed);addKitchenAppliances(fixed);addCounterAppliances(fixed);
+   addOwnedArmchair(fixed);addKitchenRack(fixed);addStandingDesk(fixed);addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);addColumnBookshelves(fixed);
+   addBalconyBistroTable(fixed);addRectangularBalconyTable(fixed);addKitchenIsland(fixed);addDiningTable(fixed);addKitchenAppliances(fixed);addCounterAppliances(fixed);
    optimizeScene(fixed);furnitureBuilds++;
   }
   if(!previous||previous.tipAge!==o.tipAge){

@@ -53,7 +53,8 @@ export function addOwnedBed(parent:T.Group){
 }
 export function addCounterAppliances(parent:T.Group){
  const group=new T.Group();group.name='Owned countertop appliances';group.position.x=-.05;parent.add(group);
- const coffee=new T.Group();coffee.name='Rancilio espresso machine';coffee.position.set(-1.91,.95,-3.46);group.add(coffee);
+ // Snug against the fridge side, with a few millimetres between the meshes.
+ const coffee=new T.Group();coffee.name='Rancilio espresso machine';coffee.position.set(-1.18,.95,-3.46);group.add(coffee);
  box(coffee,0,.015,0,.24,.03,.29,'#a9b0b1');
  box(coffee,0,.16,-.115,.24,.29,.055,'#aeb4b4');
  for(const x of [-.115,.115])box(coffee,x,.17,0,.012,.31,.28,'#abb2b3');
@@ -69,7 +70,7 @@ export function addCounterAppliances(parent:T.Group){
  for(let i=0;i<10;i++)box(coffee,-.095+i*.021,.036,.035,.008,.005,.18,'#50595b');
  cylinder(coffee,-.035,.36,-.01,.032,.015,'#b6babc',.7);
  cylinder(coffee,-.035,.391,-.01,.016,.047,'#23292b');
- const kettle=new T.Group();kettle.name='Red ribbed kettle';kettle.position.set(-1.43,.95,-3.47);group.add(kettle);
+ const kettle=new T.Group();kettle.name='Red ribbed kettle';kettle.position.set(-1.49,.95,-3.47);group.add(kettle);
  cylinder(kettle,0,.13,0,.079,.25,'#b8323c');
  for(let i=0;i<28;i++){const a=i*Math.PI*2/28;rod(kettle,new T.Vector3(Math.cos(a)*.077,.025,Math.sin(a)*.077),new T.Vector3(Math.cos(a)*.077,.242,Math.sin(a)*.077),.003,'#c23e48');}
  cylinder(kettle,0,.263,0,.069,.018,'#b6313c');cylinder(kettle,0,.285,0,.018,.035,'#b6313c');
@@ -133,7 +134,7 @@ export function addDiningTable(parent:T.Group){
  rod(table,new T.Vector3(-.21,.781,.58),new T.Vector3(-.07,.781,.60),.003,'#d7ad4f');
  // Four mixed chairs, two on each long side.
  for(const [side,z,color] of [[-1,-.50,'#9b926e'],[-1,.43,'#b96c65'],[1,-.50,'#9b926e'],[1,.43,'#b96c65']] as const){
-  const chair=new T.Group();chair.name='Dining chair';chair.position.set(side*.68,0,z);chair.rotation.y=-side*Math.PI/2;table.add(chair);
+  const chair=new T.Group();chair.name='Dining chair';chair.position.set(side*.55,0,z);chair.rotation.y=-side*Math.PI/2;table.add(chair);
   box(chair,0,.45,0,.42,.035,.40,color);
   for(const x of [-.17,.17])for(const depth of [-.16,.16])rod(chair,new T.Vector3(x,.02,depth),new T.Vector3(x,.44,depth),.017,color);
   for(const x of [-.17,.17])rod(chair,new T.Vector3(x,.45,-.17),new T.Vector3(x,.91,-.19),.016,color);
@@ -142,7 +143,7 @@ export function addDiningTable(parent:T.Group){
  }
  // Photo-based custom-painted Stokke: lime frame, two pinks, black crossbars.
  const stokke=new T.Group();stokke.name='Custom lime and pink Stokke chair';
- stokke.position.set(0,0,1.26);stokke.rotation.y=Math.PI;table.add(stokke);
+ stokke.position.set(0,0,1.14);stokke.rotation.y=Math.PI;table.add(stokke);
  const lime='#c5d74a',palePink='#e7bed8',pink='#ca81b5';
  for(const x of [-.225,.225]){
   box(stokke,x,.025,0,.045,.05,.53,lime);
