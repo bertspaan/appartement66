@@ -90,17 +90,18 @@ export function addLamps(parent:T.Group){
 }
 
 export function addKitchenIsland(parent:T.Group){
- const group=new T.Group();group.name='Kitchen island';group.position.set(-2.15,0,-2.2);parent.add(group);
- // Approximate 1.00 × 0.75 m island, 92 cm worktop height.
- box(group,0,.06,0,.80,.12,.55,'#4a4842');
- box(group,0,.50,0,.90,.76,.65,'#b89d79');
- box(group,0,.90,0,1.00,.04,.75,'#e2ddd1');
+ // Centred on the dining table; the front edge meets its rear edge at z=-1.825.
+ const group=new T.Group();group.name='Kitchen island';group.position.set(-2.65,0,-2.10);parent.add(group);
+ // Approximate 1.20 × 0.55 m island, 92 cm worktop height.
+ box(group,0,.06,0,1.00,.12,.35,'#4a4842');
+ box(group,0,.50,0,1.10,.76,.45,'#b89d79');
+ box(group,0,.90,0,1.20,.04,.55,'#e2ddd1');
  // Cabinet fronts and a drawer beneath the worktop, facing the living room.
- for(const x of [-.225,.225]){
-  box(group,x,.40,.334,.438,.55,.025,'#c6ac86');
-  box(group,x,.775,.334,.438,.18,.025,'#c6ac86');
-  box(group,x,.815,.355,.22,.015,.022,'#565950');
-  box(group,x,.645,.355,.22,.015,.022,'#565950');
+ for(const x of [-.275,.275]){
+  box(group,x,.40,.234,.538,.55,.025,'#c6ac86');
+  box(group,x,.775,.234,.538,.18,.025,'#c6ac86');
+  box(group,x,.815,.255,.22,.015,.022,'#565950');
+  box(group,x,.645,.255,.22,.015,.022,'#565950');
  }
  return group;
 }
@@ -178,6 +179,15 @@ export function addKitchenAppliances(parent:T.Group){
  for(const x of [-.20,.20]){const knob=mesh(oven,new T.CylinderGeometry(.024,.024,.018,20),material('#434a4d',.5),x,.79,.045);knob.rotation.x=Math.PI/2;}
  box(oven,0,.79,.033,.12,.038,.009,'#172625');
  for(let i=0;i<5;i++)box(oven,-.16+i*.08,.15,.025,.055,.009,.008,'#171d20');
+ // Extra 60 cm base cabinet extends the kitchen run to the left of the stove.
+ const cabinet=new T.Group();cabinet.name='Extra base cabinet beside stove';cabinet.position.set(-3.23,0,-3.46);group.add(cabinet);
+ box(cabinet,0,.045,0,.56,.09,.53,'#4a4842');
+ box(cabinet,0,.50,0,.60,.82,.60,'#b89d79');
+ box(cabinet,0,.93,.0075,.60,.04,.62,'#e2ddd1');
+ box(cabinet,0,.405,.307,.58,.61,.025,'#c6ac86');
+ box(cabinet,0,.805,.307,.58,.17,.025,'#c6ac86');
+ box(cabinet,0,.81,.335,.24,.018,.025,'#565950');
+ box(cabinet,.22,.64,.335,.018,.15,.025,'#565950');
  // Built-under 60 cm dishwasher immediately right of the oven.
  // Its front replaces the visible cabinet face, below the existing worktop.
  const dishwasher=new T.Group();dishwasher.name='Dishwasher beside oven';dishwasher.position.set(-1.955,0,-3.15);group.add(dishwasher);
