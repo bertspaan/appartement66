@@ -28,11 +28,7 @@ export function addTipBed(parent:T.Group){
  for(const [x,z,c] of [[-.25,.66,'#d38e7d'],[.24,-.59,'#b7c9a0']] as const){box(group,x,.16,z,.35,.26,.40,c);box(group,x,.298,z,.28,.015,.32,'#625b52');}
  const colors=['#cf715c','#f0c661','#8aaebc','#8fab81'];
  for(let i=0;i<8;i++){const x=-.30+(i%3)*.19,z=-.18+Math.floor(i/3)*.17;const block=box(group,x,.10+(i===7?.13:0),z,.12,.12,.12,colors[i%4]);block.rotation.y=i*.42;}
- // Teddy bear and a small toy train, both visible in the play space.
- ball(group,.26,.29,.28,.14,'#b58960');ball(group,.26,.48,.28,.105,'#b58960');
- for(const x of [.18,.34])ball(group,x,.56,.28,.038,'#b58960');
- for(const x of [.22,.30])ball(group,x,.49,.185,.012,'#34302a');
- ball(group,.26,.45,.175,.04,'#e1c49a');
+ // Small toy train alongside the photo-based stuffed animals.
  for(let i=0;i<3;i++){box(group,-.26+i*.19,.09,-.71,.15,.10,.10,colors[i]);for(const x of [-.31+i*.19,-.21+i*.19])for(const z of [-.77,-.65])ball(group,x,.065,z,.028,'#455359');}
  return group;
 }
@@ -79,8 +75,8 @@ export function addLamps(parent:T.Group){
  mesh(pendant,new T.SphereGeometry(.06,16,12),glow(),0,2.10,0).castShadow=false;
  const diningLight=new T.PointLight('#ffe0ac',0,7,2);diningLight.position.set(0,2.025,0);pendant.add(diningLight);lights.push(diningLight);
  // Parent bedside lamp and Tip's warm wall light.
- box(group,1.55,.25,2.65,.40,.47,.40,'#b9936b');
- for(const [x,y,z,name] of [[1.55,.51,2.65,'Bedside lamp'],[4.48,1.68,.70,'Tip wall lamp']] as const){
+ box(group,1.55,.25,3.10,.40,.47,.40,'#b9936b');
+ for(const [x,y,z,name] of [[1.55,.51,3.10,'Bedside lamp'],[4.48,1.68,.70,'Tip wall lamp']] as const){
   const lamp=new T.Group();lamp.name=name;lamp.position.set(x,y,z);group.add(lamp);
   mesh(lamp,new T.CylinderGeometry(.075,.10,.025,20),material('#b4a180'),0,.015,0);
   rod(lamp,new T.Vector3(0,.03,0),new T.Vector3(0,.19,0),.014,'#8c806d');
@@ -93,16 +89,16 @@ export function addLamps(parent:T.Group){
 
 export function addKitchenIsland(parent:T.Group){
  const group=new T.Group();group.name='Kitchen island';group.position.set(-2.15,0,-2.2);parent.add(group);
- // Approximate 1.60 × 0.90 m island, 92 cm worktop height.
- box(group,0,.06,0,1.40,.12,.70,'#4a4842');
- box(group,0,.50,0,1.50,.76,.80,'#b89d79');
- box(group,0,.90,0,1.60,.04,.90,'#e2ddd1');
+ // Approximate 1.20 × 0.75 m island, 92 cm worktop height.
+ box(group,0,.06,0,1.00,.12,.55,'#4a4842');
+ box(group,0,.50,0,1.10,.76,.65,'#b89d79');
+ box(group,0,.90,0,1.20,.04,.75,'#e2ddd1');
  // Cabinet fronts and a drawer beneath the worktop, facing the living room.
- for(const x of [-.50,0,.50]){
-  box(group,x,.40,.409,.488,.55,.025,'#c6ac86');
-  box(group,x,.775,.409,.488,.18,.025,'#c6ac86');
-  box(group,x,.815,.43,.22,.015,.022,'#565950');
-  box(group,x,.645,.43,.22,.015,.022,'#565950');
+ for(const x of [-.275,.275]){
+  box(group,x,.40,.334,.538,.55,.025,'#c6ac86');
+  box(group,x,.775,.334,.538,.18,.025,'#c6ac86');
+  box(group,x,.815,.355,.22,.015,.022,'#565950');
+  box(group,x,.645,.355,.22,.015,.022,'#565950');
  }
  return group;
 }
@@ -190,5 +186,100 @@ export function addKitchenAppliances(parent:T.Group){
  box(fridge,0,1.395,.336,.585,1.20,.035,'#d7dad6');
  box(fridge,-.235,.69,.38,.025,.19,.045,'#818b8c');
  box(fridge,-.235,.96,.38,.025,.25,.045,'#818b8c');
+ return group;
+}
+
+export function addNordElectro(parent:T.Group){
+ const group=new T.Group();group.name='Nord Electro with monitor speakers';
+ group.position.set(-.153,0,.397);group.rotation.y=Math.atan2(sketch.bedroomFrontLeft[1]-sketch.bedroomFrontRight[1],sketch.bedroomFrontRight[0]-sketch.bedroomFrontLeft[0]);parent.add(group);
+ // Official case dimensions: 1066 × 104 × 294 mm. Stand and stool are approximate.
+ // https://www.nordkeyboards.com/products/nord-electro-7/specifications/
+ const red='#bc2635',black='#25292b';
+ for(const z of [-.10,.10]){
+  rod(group,new T.Vector3(-.36,.04,z),new T.Vector3(.34,.70,z),.018,black);
+  rod(group,new T.Vector3(.36,.04,z),new T.Vector3(-.34,.70,z),.018,black);
+ }
+ for(const x of [-.36,.36]){box(group,x,.025,0,.07,.04,.43,black);box(group,x,.69,0,.05,.025,.30,black);}
+ box(group,0,.742,0,1.066,.084,.294,red);
+ for(const x of [-.521,.521])box(group,x,.752,0,.024,.104,.294,'#aa2632');
+ // 43 white keys and 30 black keys: E–E over six octaves.
+ const keyWidth=.98/43;
+ for(let i=0;i<43;i++)box(group,-.49+(i+.5)*keyWidth,.780,-.065,keyWidth-.001,.02,.154,'#f5f3e9');
+ for(let i=0;i<42;i++)if([1,2,4,5,6].includes(i%7))box(group,-.49+(i+1)*keyWidth,.795,-.027,keyWidth*.58,.018,.08,'#16191b');
+ box(group,0,.788,.088,.95,.01,.094,red);
+ box(group,.03,.796,.09,.072,.004,.044,'#243943');
+ for(let i=0;i<9;i++){box(group,-.43+i*.019,.797,.094,.009,.01,.043,black);box(group,-.43+i*.019,.805,.077+(i%3)*.009,.015,.007,.01,i<3?'#e3dbca':'#26292a');}
+ for(let i=0;i<15;i++){const knob=mesh(group,new T.CylinderGeometry(.007,.007,.012,12),material(black),-.19+(i%8)*.086,.801,.067+Math.floor(i/8)*.047);knob.name='Control knob';}
+ box(group,0,.48,-.55,.55,.08,.30,black);
+ for(const x of [-.22,.22])for(const z of [-.65,-.45])box(group,x,.23,z,.03,.42,.03,black);
+ box(group,.12,.035,-.32,.065,.045,.15,black);
+ // Compact nearfield monitors on separate stands, facing the player.
+ // Keep the right-hand stand inside the translucent-wall clearance.
+ for(const x of [-.66,.66]){
+  const speaker=new T.Group();speaker.name=x<0?'Left monitor on stand':'Right monitor on stand';
+  speaker.position.set(x,0,.04);group.add(speaker);
+  box(speaker,0,.02,0,.20,.04,.24,black);
+  rod(speaker,new T.Vector3(0,.04,0),new T.Vector3(0,.99,0),.017,'#43494d');
+  box(speaker,0,.99,0,.17,.02,.19,black);
+  box(speaker,0,1.14,0,.17,.28,.19,'#303639');
+  for(const [y,r] of [[1.085,.055],[1.225,.022]]){
+   const cone=mesh(speaker,new T.CylinderGeometry(r,r*.78,.012,24),material('#171d20'),0,y,-.101);
+   cone.rotation.x=Math.PI/2;
+   const rim=mesh(speaker,new T.TorusGeometry(r,.004,8,24),material('#566168'),0,y,-.109);
+   ball(speaker,0,y,-.113,r*.32,'#343e43');
+  }
+  ball(speaker,.057,1.027,-.097,.003,'#8ebbb2');
+ }
+ return group;
+}
+
+export function addTipTeenRoom(parent:T.Group){
+ const group=new T.Group();group.name='Tip — teenage room';parent.add(group);
+ const oak='#bd9c76',sage='#8eaaa1',dark='#333e46';
+ // Single bed along the same wall as the childhood loft bed.
+ box(group,3.96,.24,2.37,1.04,.28,2.10,oak);
+ box(group,3.96,.45,2.37,.96,.20,2.01,'#eee9df');
+ box(group,3.96,.58,2.18,.97,.10,1.56,sage);
+ box(group,3.96,.60,3.12,.68,.14,.38,'#e6d8be');
+ box(group,4.46,.57,2.37,.05,.88,2.10,oak);
+ for(const x of [3.52,4.40])for(const z of [1.43,3.31])box(group,x,.08,z,.07,.16,.07,dark);
+ // Desk faces the bedroom divider; its footprint stays clear of the door.
+ const desk=new T.Group();desk.name='Study desk with PlayStation';desk.position.set(2.32,0,2.16);desk.rotation.y=Math.PI/2;group.add(desk);
+ box(desk,0,.75,0,1.25,.045,.60,oak);
+ for(const x of [-.55,.55])for(const z of [-.23,.23])box(desk,x,.365,z,.035,.73,.035,dark);
+ box(desk,.41,.54,.02,.31,.33,.49,'#d6d8ce');
+ for(const y of [.46,.60])box(desk,.41,y,.271,.12,.013,.015,dark);
+ // Monitor, controller and a stylised white PlayStation console.
+ box(desk,-.15,.79,-.13,.25,.025,.17,dark);box(desk,-.15,.92,-.16,.035,.25,.035,dark);
+ box(desk,-.15,1.115,-.16,.57,.34,.035,'#202a30');
+ box(desk,-.15,1.115,-.139,.535,.302,.005,'#274d64');
+ box(desk,-.15,1.115,-.135,.39,.014,.002,'#719dac');
+ box(desk,-.15,1.06,-.135,.20,.006,.002,'#83a7b0');
+ const consoleGroup=new T.Group();consoleGroup.name='PlayStation';consoleGroup.position.set(.45,.78,-.10);desk.add(consoleGroup);
+ box(consoleGroup,0,.165,0,.052,.33,.17,'#222930');
+ for(const x of [-.037,.037]){const panel=box(consoleGroup,x,.17,0,.017,.35,.185,'#eeeee9');panel.rotation.z=-Math.sign(x)*.045;}
+ box(consoleGroup,-.028,.17,.088,.004,.28,.004,'#779fca');
+ const pad=new T.Group();pad.name='Game controller';pad.position.set(.04,.80,.17);desk.add(pad);
+ box(pad,0,.008,0,.11,.027,.055,'#e4e4df');
+ for(const x of [-.053,.053]){const grip=ball(pad,x,-.004,.021,.023,'#e4e4df');grip.scale.set(.7,.65,1.3);ball(pad,x*.44,.025,.008,.008,'#252d32');}
+ for(const [x,z] of [[.036,-.014],[.045,-.005],[.036,.004],[.027,-.005]])ball(pad,x,.026,z,.003,'#454b51');
+ box(pad,-.035,.025,-.005,.021,.005,.007,'#252d32');box(pad,-.035,.026,-.005,.007,.005,.021,'#252d32');
+ // Homework, pencils and headphones.
+ box(desk,-.42,.787,.16,.22,.014,.16,'#eee5ce');
+ rod(desk,new T.Vector3(-.48,.80,.15),new T.Vector3(-.34,.80,.18),.003,'#cc9c56');
+ const phones=mesh(desk,new T.TorusGeometry(.057,.009,8,24,Math.PI),material('#485862'),-.42,.80,-.03);phones.rotation.x=Math.PI/2;
+ for(const x of [-.477,-.363])box(desk,x,.803,-.03,.025,.026,.04,'#33434b');
+ // Compact chair between desk and bed.
+ box(group,2.97,.47,2.16,.43,.06,.43,dark);box(group,3.16,.76,2.16,.045,.52,.43,sage);
+ rod(group,new T.Vector3(2.97,.08,2.16),new T.Vector3(2.97,.44,2.16),.026,dark);
+ for(let i=0;i<5;i++){const a=i*Math.PI*2/5;rod(group,new T.Vector3(2.97,.08,2.16),new T.Vector3(2.97+Math.cos(a)*.25,.04,2.16+Math.sin(a)*.25),.014,dark);}
+ // Books and keepsakes on a shelf above the desk.
+ box(group,2.13,1.65,2.16,.26,.035,1.18,oak);
+ for(let i=0;i<9;i++)box(group,2.13,1.79+(i%3)*.013,1.72+i*.043,.19,.24+(i%3)*.026,.035,['#647e8b','#c8996d','#a16f6a','#d6c9a7'][i%4]);
+ const pot=mesh(group,new T.CylinderGeometry(.065,.05,.11,16),material('#c49178'),2.13,1.72,2.59);
+ for(let i=0;i<5;i++){const leaf=ball(group,2.13+Math.sin(i*2.4)*.045,1.83+(i%2)*.04,2.59+Math.cos(i*2.4)*.045,.045,'#66886c');leaf.scale.set(.45,1.5,.7);}
+ // One childhood keepsake on the bed.
+ ball(group,4.19,.70,3.05,.065,'#c1b394');ball(group,4.19,.79,3.05,.045,'#c1b394');
+ for(const x of [4.16,4.22])ball(group,x,.83,3.05,.016,'#c1b394');
  return group;
 }

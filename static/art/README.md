@@ -10,3 +10,10 @@ Edited with the built-in image generation tool from the owner's photos on 2026-0
 Blue: Edit target: attached photo of user's blue citrus juicer painting. Produce a faithful flat front-on texture of ONLY the painting canvas, crop away ALL frame and surrounding wall, rectify perspective to a portrait rectangle aspect 3:4. Preserve exact composition, brushwork and shapes, do not redesign. Remove yellow/green room-light glare: the background is blue, vessel blue, juicer cone pale cool white/light blue. Neutral evenly lit art reproduction, no new elements. Full bleed canvas to all edges.
 
 Yellow: Edit target: attached photo of user's yellow still life painting. Produce a faithful flat front-on texture of ONLY the painting canvas, crop away ALL frame and surrounding wall, rectify perspective to square. Preserve exact composition and original brushwork: two yellow fruits above two purple-white round vegetables on yellow ochre background. Neutral even lighting remove room cast. Do not redesign or add elements. Full bleed canvas to all edges.
+
+
+## Small landscape
+
+`small-landscape.png` was edited with the built-in image generation tool from PXL_20260905_110326676.jpg. Estimated canvas 45 × 15 cm, on the bedroom side of the living-room partition, beside the bed.
+
+Prompt: Edit target: small landscape painting in supplied photo. Extract ONLY the painted canvas, remove wooden frame and brick wall, rectify perspective to a flat front-on rectangle with 3:1 width:height. Preserve the exact original composition, brushwork, green upright trees, ochre field, dark hills and pale sky, and signature as seen. Neutral even light. No redesign. Full bleed painting texture for a 3D model.
