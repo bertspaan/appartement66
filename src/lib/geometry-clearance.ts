@@ -113,3 +113,25 @@ export function separateFloorEdges(roots:T.Object3D[]){
   geometry.computeVertexNormals();geometry.computeBoundingBox();geometry.computeBoundingSphere();object.geometry=geometry;
  });
 }
+
+/** Separate facade insulation from the concrete piers around the windows. */
+export function separateFacadeLayers(root:T.Object3D){
+ const epsilon=1e-5,clearance=.003;
+ root.traverse(object=>{
+  if(!(object instanceof T.Mesh))return;
+  const source=String(object.userData.source_path??'').toLowerCase();
+  if(!/isolatie\s*-\s*steenwol/.test(source))return;
+  const geometry=object.geometry.clone(),positions=geometry.getAttribute('position');
+  geometry.computeBoundingBox();const bounds=geometry.boundingBox!;
+  // The two facades meet concrete at x=-4.96 and z=4.04 respectively.
+  // Recess only the insulation's contact surface, retaining window positions.
+  const west=Math.abs(bounds.max.x+4.96)<epsilon;
+  const north=Math.abs(bounds.min.z-4.04)<epsilon;
+  if(!west&&!north){geometry.dispose();return;}
+  for(let i=0;i<positions.count;i++){
+   if(west&&Math.abs(positions.getX(i)+4.96)<epsilon)positions.setX(i,-4.96-clearance);
+   if(north&&Math.abs(positions.getZ(i)-4.04)<epsilon)positions.setZ(i,4.04+clearance);
+  }
+  positions.needsUpdate=true;geometry.computeVertexNormals();geometry.computeBoundingBox();geometry.computeBoundingSphere();object.geometry=geometry;
+ });
+}
