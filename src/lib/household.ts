@@ -52,7 +52,7 @@ export function addOwnedBed(parent:T.Group){
  return bed;
 }
 export function addCounterAppliances(parent:T.Group){
- const group=new T.Group();group.name='Owned countertop appliances';parent.add(group);
+ const group=new T.Group();group.name='Owned countertop appliances';group.position.x=-.05;parent.add(group);
  const coffee=new T.Group();coffee.name='Rancilio espresso machine';coffee.position.set(-1.91,.95,-3.46);group.add(coffee);
  box(coffee,0,.015,0,.24,.03,.29,'#a9b0b1');
  box(coffee,0,.16,-.115,.24,.29,.055,'#aeb4b4');

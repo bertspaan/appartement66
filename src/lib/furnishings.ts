@@ -1,3 +1,5 @@
+import {addBuchardtS400} from './buchardt-speakers';
+import {addTeenPosters} from './teen-posters';
 import * as T from 'three';
 import {sketch,getInstrumentPlacement} from './sketch-layout';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -89,14 +91,14 @@ export function addLamps(parent:T.Group){
 
 export function addKitchenIsland(parent:T.Group){
  const group=new T.Group();group.name='Kitchen island';group.position.set(-2.15,0,-2.2);parent.add(group);
- // Approximate 1.20 × 0.75 m island, 92 cm worktop height.
- box(group,0,.06,0,1.00,.12,.55,'#4a4842');
- box(group,0,.50,0,1.10,.76,.65,'#b89d79');
- box(group,0,.90,0,1.20,.04,.75,'#e2ddd1');
+ // Approximate 1.00 × 0.75 m island, 92 cm worktop height.
+ box(group,0,.06,0,.80,.12,.55,'#4a4842');
+ box(group,0,.50,0,.90,.76,.65,'#b89d79');
+ box(group,0,.90,0,1.00,.04,.75,'#e2ddd1');
  // Cabinet fronts and a drawer beneath the worktop, facing the living room.
- for(const x of [-.275,.275]){
-  box(group,x,.40,.334,.538,.55,.025,'#c6ac86');
-  box(group,x,.775,.334,.538,.18,.025,'#c6ac86');
+ for(const x of [-.225,.225]){
+  box(group,x,.40,.334,.438,.55,.025,'#c6ac86');
+  box(group,x,.775,.334,.438,.18,.025,'#c6ac86');
   box(group,x,.815,.355,.22,.015,.022,'#565950');
   box(group,x,.645,.355,.22,.015,.022,'#565950');
  }
@@ -149,9 +151,7 @@ export function addColumnBookshelves(parent:T.Group){
   for(let row=0;row<5;row++){
    const shelf=.492+row*.40;
    if(row===2){
-    // A short horizontal stack and a ceramic bowl.
-    for(let i=0;i<3;i++)box(cabinet,-.105,shelf+.018+i*.035,0,.21,.032,.19,colors[(i+index)%6]);
-    mesh(cabinet,new T.SphereGeometry(.064,20,12,0,Math.PI*2,Math.PI/2,Math.PI/2),material('#d3b8a0'),.13,shelf+.065,.025);
+    addBuchardtS400(cabinet,shelf);
    }else{
     for(let i=0;i<7;i++){
      const height=.21+((i*3+row+index)%5)*.019;
@@ -169,7 +169,7 @@ export function addKitchenAppliances(parent:T.Group){
  const group=new T.Group();group.name='Kitchen appliances';parent.add(group);
  // Complete the source induction cooking position with an oven below it.
  // Its front covers the existing cabinet face; the source hob stays visible.
- const oven=new T.Group();oven.name='Oven below induction hob';oven.position.set(-2.515,0,-3.15);group.add(oven);
+ const oven=new T.Group();oven.name='Oven below induction hob';oven.position.set(-2.565,0,-3.15);group.add(oven);
  box(oven,0,.48,0,.59,.76,.04,'#33383a');
  box(oven,0,.79,.025,.57,.12,.012,'#bbc0c1');
  box(oven,0,.43,.027,.50,.49,.015,'#151c20');
@@ -178,8 +178,20 @@ export function addKitchenAppliances(parent:T.Group){
  for(const x of [-.20,.20]){const knob=mesh(oven,new T.CylinderGeometry(.024,.024,.018,20),material('#434a4d',.5),x,.79,.045);knob.rotation.x=Math.PI/2;}
  box(oven,0,.79,.033,.12,.038,.009,'#172625');
  for(let i=0;i<5;i++)box(oven,-.16+i*.08,.15,.025,.055,.009,.008,'#171d20');
- // Standard 60 cm fridge-freezer beside the source kitchen run; sizes provisional.
- const fridge=new T.Group();fridge.name='Fridge-freezer';fridge.position.set(-3.23,0,-3.44);group.add(fridge);
+ // Built-under 60 cm dishwasher immediately right of the oven.
+ // Its front replaces the visible cabinet face, below the existing worktop.
+ const dishwasher=new T.Group();dishwasher.name='Dishwasher beside oven';dishwasher.position.set(-1.955,0,-3.15);group.add(dishwasher);
+ box(dishwasher,0,.48,0,.595,.78,.04,'#b8bfbe');
+ box(dishwasher,0,.435,.026,.575,.65,.018,'#d0d5d2');
+ box(dishwasher,0,.81,.026,.575,.09,.020,'#a5aeae');
+ box(dishwasher,0,.744,.046,.38,.025,.035,'#7b8889');
+ box(dishwasher,.15,.81,.038,.095,.037,.005,'#253336');
+ for(let i=0;i<3;i++)box(dishwasher,.125+i*.023,.81,.042,.013,.014,.002,'#91bca9');
+ for(const x of [-.23,-.17]){const button=mesh(dishwasher,new T.CylinderGeometry(.011,.011,.007,16),material('#526164',.5),x,.81,.04);button.rotation.x=Math.PI/2;}
+ box(dishwasher,0,.06,-.012,.55,.10,.025,'#454e4d');
+ // 60 cm fridge-freezer in the service-wall corner, with 25 mm on each side.
+ // Handles on the left, matching the user’s right-hinged fridge doors.
+ const fridge=new T.Group();fridge.name='Fridge-freezer';fridge.position.set(-.805,0,-3.44);group.add(fridge);
  box(fridge,0,1.005,0,.60,2.01,.65,'#c1c5c3');
  box(fridge,0,.055,.02,.53,.10,.57,'#414747');
  box(fridge,0,.43,.336,.585,.70,.035,'#d7dad6');
@@ -233,8 +245,9 @@ export function addNordElectro(parent:T.Group){
  return group;
 }
 
-export function addTipTeenRoom(parent:T.Group){
+export function addTipTeenRoom(parent:T.Group,posterTextures:T.Texture[]){
  const group=new T.Group();group.name='Tip — teenage room';parent.add(group);
+ addTeenPosters(group,posterTextures);
  const oak='#bd9c76',sage='#8eaaa1',dark='#333e46';
  // Single bed along the same wall as the childhood loft bed.
  box(group,3.96,.24,2.37,1.04,.28,2.10,oak);

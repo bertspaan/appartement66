@@ -13,7 +13,8 @@
     const {createApartment}=await import('$lib/apartment');
     apartment=await createApartment(host,()=>{});
     if(disposed){apartment.destroy();return;}
-    apartment.update({floor:'oak',light:'day',furniture:true,doorOpen:0,hallwayWall:true,instrument:'upright',tipAge:'child'});
+    apartment.view('preview');
+    apartment.update({floor:'oak',light:'day',furniture:true,doorOpen:0,hallwayWall:true,doorsOpen:false,instrument:'upright',tipAge:'child'});
     await document.fonts.ready;
     // Let the renderer draw the updated furniture before declaring the image ready.
     await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
@@ -40,7 +41,7 @@
 </div>
 
 <style>
- :global(body){margin:0;background:#e9edf0}
+ :global(body){margin:0;background:#fff9ee}
  .card{position:relative;width:1200px;height:630px;overflow:hidden}
  .model{position:absolute;width:2400px;height:1260px;left:-600px;top:-365px}
  .title{position:absolute;left:28px;top:22px;display:flex;align-items:center;gap:15px;font:24px/1.3 system-ui;color:#20323c}

@@ -5,10 +5,10 @@
  let host:HTMLDivElement;let api:Awaited<ReturnType<typeof createApartment>>|undefined;
  let tipAge:'child'|'teen'='child';
  let instrument:'upright'|'nord'='upright';
- let floor='oak',light='day',furniture=true,doorOpen=0,hallwayWall=true;
+ let floor='oak',light='day',furniture=true,doorOpen=0,hallwayWall=true,doorsOpen=false;
  let ready=false,error='',hint='Het appartement laden…',mode='orbit';
- function update(){api?.update({floor,light,furniture,doorOpen,hallwayWall,instrument,tipAge});}
- $: if(ready && api) api.update({floor,light,furniture,doorOpen,hallwayWall,instrument,tipAge});
+ function update(){api?.update({floor,light,furniture,doorOpen,hallwayWall,doorsOpen,instrument,tipAge});}
+ $: if(ready && api) api.update({floor,light,furniture,doorOpen,hallwayWall,doorsOpen,instrument,tipAge});
  function view(v:string){mode=v;api?.view(v);}
  onMount(()=>{let disposed=false;import('$lib/apartment').then(async m=>{const a=await m.createApartment(host,message=>hint=message);if(disposed){a.destroy();return;}api=a;ready=true;update();}).catch(e=>{console.error(e);error='Het model kon niet worden geladen. Vernieuw de pagina om het opnieuw te proberen.';});return()=>{disposed=true;api?.destroy();};});
 </script>
@@ -39,6 +39,7 @@
    <label class="check"><input type="checkbox" bind:checked={hallwayWall}/>Lichtdoorlatende wand met schuifdeur</label>
    {#if hallwayWall}<div class="dimensions"><label for="door">Schuifdeur <output>{Math.round(doorOpen*100)}% open</output></label><input id="door" type="range" min="0" max="1" step=".01" bind:value={doorOpen}/></div>{/if}
    </fieldset>
+   <fieldset disabled={!ready}><legend><span>Deuren</span></legend><label class="check"><input type="checkbox" bind:checked={doorsOpen}/>Deuren 45° open</label></fieldset>
    <fieldset disabled={!ready}><legend><span>Materialen & sfeer</span></legend><label for="floor">Vloerafwerking</label><select id="floor" bind:value={floor}><option value="oak">Naturel eiken</option><option value="concrete">Licht beton</option><option value="walnut">Donker notenhout</option></select><div class="segmented">{#each [['day','Daglicht'],['evening','Avond']] as i}<button class:chosen={light===i[0]} onclick={()=>{light=i[0];update();}} aria-pressed={light===i[0]}>{i[1]}</button>{/each}</div><label class="check"><input type="checkbox" bind:checked={furniture}/>Meubels tonen</label></fieldset>
    <fieldset class="instrument" disabled={!ready}><legend><span>Instrument</span></legend>
     <label class="check"><input type="radio" name="instrument" value="upright" bind:group={instrument}/>Akoestische piano</label>

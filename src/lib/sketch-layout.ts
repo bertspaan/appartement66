@@ -1,3 +1,4 @@
+import {addWoodenDoor} from './wooden-doors';
 import * as T from 'three';
 type Point = readonly [number, number];
 // Metres in the imported apartment's coordinate system. Traced approximately
@@ -37,7 +38,16 @@ export function addSketchLayout(group:T.Group,open:number,hallwayWall=true){
  // Two provisional bedroom entrances in the diagonal front wall.
  const doors=[[1.88,2.73],[3.40,4.25]];
  let cursor=0;
- for(const [start,end] of doors){segment(along(cursor),along(start));segment(along(start),along(end),.1,.47,2.385);cursor=end;}
+ for(const [index,[start,end]] of doors.entries()){
+  segment(along(cursor),along(start));segment(along(start),along(end),.1,.47,2.385);
+  const frameMaterial=new T.MeshStandardMaterial({color:'#d1b38c',roughness:.7});
+  for(const distance of [start+.0125,end-.0125])segment(along(distance-.0125),along(distance+.0125),.115,2.15,1.075,frameMaterial);
+  segment(along(start),along(end),.115,.025,2.1375,frameMaterial);
+  const door=addWoodenDoor(group,end-start-.06,2.10,index===0?1:-1,index===0?1:-1),centre=along((start+end)/2);
+  door.name=index===0?'Bedroom door — Sarah and Bert':'Bedroom door — Tip';
+  door.position.set(centre[0],.015,centre[1]);door.rotation.y=-Math.atan2(b[1]-a[1],b[0]-a[0]);
+  cursor=end;
+ }
  segment(along(cursor),b);
  segment(a,[a[0],3.79]);
  const dividerZ=a[1]+(b[1]-a[1])*(sketch.bedroomDividerX-a[0])/(b[0]-a[0]);

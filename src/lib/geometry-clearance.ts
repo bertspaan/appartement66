@@ -18,7 +18,8 @@ export function separateInteriorSurfaces(root:T.Object3D){
   const endAtEnvelope=wall&&Math.abs(bounds.min.z-wallFace)<.001&&bounds.max.z>wallFace+.05;
   if(!kitchen&&!endAtEnvelope)return;
   const geometry=original.clone();
-  if(kitchen)geometry.translate(0,0,clearance);
+  // Move the kitchen 5 cm left to clear the fridge in the opposite corner.
+  if(kitchen)geometry.translate(-.05,0,clearance);
   else{
    const positions=geometry.getAttribute('position');
    for(let i=0;i<positions.count;i++)if(positions.getZ(i)<wallFace+clearance)positions.setZ(i,wallFace+clearance);
