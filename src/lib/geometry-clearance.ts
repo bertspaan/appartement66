@@ -93,3 +93,23 @@ export function repairBuildingJunctions(roots:T.Object3D[]){
   g.dispose();
  }
 }
+
+/** Recess source floor edges so they cannot share an exterior wall face. */
+export function separateFloorEdges(roots:T.Object3D[]){
+ const epsilon=1e-5,recess=.003;
+ for(const root of roots)root.traverse(object=>{
+  if(!(object instanceof T.Mesh))return;
+  const source=String(object.userData.source_path??'').toLowerCase();
+  if(object.userData.layer!=='IfcSlab'&&!source.includes('43_vloer'))return;
+  const geometry=object.geometry.clone(),positions=geometry.getAttribute('position');
+  // Only wall-aligned building edges; leave the balcony slab joints continuous.
+  for(let i=0;i<positions.count;i++){
+   const x=positions.getX(i),z=positions.getZ(i);
+   if(Math.abs(z+4.03)<epsilon)positions.setZ(i,z+recess);
+   if(Math.abs(z-4.04)<epsilon)positions.setZ(i,z-recess);
+   if(Math.abs(x-4.91)<epsilon)positions.setX(i,x-recess);
+   if(Math.abs(x+4.96)<epsilon)positions.setX(i,x+recess);
+  }
+  geometry.computeVertexNormals();geometry.computeBoundingBox();geometry.computeBoundingSphere();object.geometry=geometry;
+ });
+}

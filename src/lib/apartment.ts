@@ -8,7 +8,7 @@ import {addEntranceDoorHandles,replaceServiceDoorLeaves,setWoodenDoorsOpen} from
 import {addTipMarbleRun} from './marble-run';
 import {addTipToyCabinet} from './toy-cabinet';
 import * as T from 'three';
-import {repairBuildingJunctions,separateInteriorSurfaces} from './geometry-clearance';
+import {separateFloorEdges,repairBuildingJunctions,separateInteriorSurfaces} from './geometry-clearance';
 import {base} from '$app/paths';
 import {addOwnedBed,addCounterAppliances,addTipAnimals,addDiningTable} from './household';
 import {addBalconyStringLights} from './balcony-lights';
@@ -34,6 +34,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  const [shell,existing,floor,balcony]=await Promise.all(['shell','existing','floor','balcony'].map(n=>loader.loadAsync(`${base}/optimized/model/${n}.glb`)));
  separateInteriorSurfaces(shell.scene);separateInteriorSurfaces(existing.scene);
  repairBuildingJunctions([shell.scene,existing.scene,balcony.scene]);
+ separateFloorEdges([shell.scene,existing.scene,floor.scene,balcony.scene]);
  for(const g of [shell,existing,floor,balcony]){model.add(g.scene);g.scene.traverse(o=>{if(o instanceof T.Mesh){o.castShadow=true;o.receiveShadow=true;const mats=Array.isArray(o.material)?o.material:[o.material];mats.forEach(m=>{if(m instanceof T.MeshStandardMaterial)m.roughness=m.transparent?.15:.8;if(m.transparent)o.castShadow=false;});}});}
  // Replace the low source landscaping trays with the user's metre-high planters.
  balcony.scene.traverse(o=>{if(o instanceof T.Mesh){const source=String(o.userData.source_path??'').toLowerCase();if(source.includes('groenvoorziening')||source.includes('terreinmaterialen'))o.visible=false;}});
@@ -52,7 +53,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   }
  });
  optimizeScene(model);
- const finish=new T.Mesh(new T.BoxGeometry(9.32,.018,7.58),new T.MeshStandardMaterial({color:'#ae855a',roughness:.72}));finish.position.set(0,.012,0);finish.receiveShadow=true;model.add(finish);
+ const finish=new T.Mesh(new T.BoxGeometry(9.36,.018,7.62),new T.MeshStandardMaterial({color:'#ae855a',roughness:.72}));finish.position.set(0,.012,0);finish.receiveShadow=true;model.add(finish);
  const partitions=new T.Group();partitions.name='Proposed bedroom partitions';model.add(partitions);
  const furniture=new T.Group();furniture.name='Proposed furniture';model.add(furniture);
  const tipRoom=new T.Group(),instrument=new T.Group();tipRoom.name='Tip room variant';instrument.name='Instrument variant';furniture.add(tipRoom,instrument);
