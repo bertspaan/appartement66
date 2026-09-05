@@ -25,11 +25,14 @@ export function addOwnedBed(parent:T.Group){
  for(let i=0;i<8;i++)box(bed,0,.709,-.81+i*.23,1.43,.002,.003,'#e4e0d7');
  // Small wood knots in the exposed footboard.
  for(const x of [-.57,-.20,.36]){const knot=ellipsoid(bed,x,.44,-1.033,.025,.010,.002,'#aa8052');knot.rotation.z=.3;}
- // Quarter-turn: head end against the long bedroom divider, with 2 cm clearance.
- bed.rotation.y=Math.PI/2;
- bed.position.set(0,0,2.30);
+ // Head end against the diagonal wall, on the solid section before the doorway.
+ bed.position.set(0,0,0);bed.rotation.set(0,0,0);
  const bounds=new T.Box3().setFromObject(bed);
- bed.position.x=sketch.bedroomDividerX-.05-.02-bounds.max.x;
+ const a=sketch.bedroomFrontLeft,b=sketch.bedroomFrontRight;
+ const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);
+ const offset=bounds.max.z+.07;
+ bed.rotation.y=Math.PI-Math.atan2(dz,dx);
+ bed.position.set(a[0]+dx/length*.96-dz/length*offset,0,a[1]+dz/length*.96+dx/length*offset);
  return bed;
 }
 export function addCounterAppliances(parent:T.Group){
@@ -91,8 +94,8 @@ export function addTipAnimals(parent:T.Group){
 
 export function addDiningTable(parent:T.Group){
  // User's 2 m table, with estimated 85 cm width and 76 cm height.
- // Short end meets the island's living-room edge at z=-1.825.
- const table=new T.Group();table.name='Owned wooden dining table';table.position.set(-2.15,0,-.825);parent.add(table);
+ // Shifted 50 cm toward the window-side balcony for more piano-side walking space.
+ const table=new T.Group();table.name='Owned wooden dining table';table.position.set(-2.65,0,-.825);parent.add(table);
  const wood='#b6884e',edge='#a57b47';
  for(let i=0;i<4;i++)box(table,-.31875+i*.2125,.74,0,.2105,.04,2,wood);
  for(const x of [-.37,.37])box(table,x,.65,0,.035,.14,1.88,edge);
@@ -112,14 +115,38 @@ export function addDiningTable(parent:T.Group){
  box(table,-.16,.767,.49,.22,.012,.29,'#f2e5cf');
  for(let i=0;i<3;i++)rod(table,new T.Vector3(-.23,.776,.43+i*.036),new T.Vector3(-.10,.776,.46+i*.025),.002,['#709b8a','#ca9767','#a685aa'][i]);
  rod(table,new T.Vector3(-.21,.781,.58),new T.Vector3(-.07,.781,.60),.003,'#d7ad4f');
- // Two mixed chairs on the window side keep the piano-side passage open.
- for(const [z,color] of [[-.50,'#9b926e'],[.43,'#b96c65']] as const){
-  const chair=new T.Group();chair.name='Dining chair';chair.position.set(-.72,0,z);chair.rotation.y=Math.PI/2;table.add(chair);
+ // Four mixed chairs, two on each long side.
+ for(const [side,z,color] of [[-1,-.50,'#9b926e'],[-1,.43,'#b96c65'],[1,-.50,'#9b926e'],[1,.43,'#b96c65']] as const){
+  const chair=new T.Group();chair.name='Dining chair';chair.position.set(side*.68,0,z);chair.rotation.y=-side*Math.PI/2;table.add(chair);
   box(chair,0,.45,0,.42,.035,.40,color);
   for(const x of [-.17,.17])for(const depth of [-.16,.16])rod(chair,new T.Vector3(x,.02,depth),new T.Vector3(x,.44,depth),.017,color);
   for(const x of [-.17,.17])rod(chair,new T.Vector3(x,.45,-.17),new T.Vector3(x,.91,-.19),.016,color);
   for(let i=0;i<5;i++)rod(chair,new T.Vector3(-.14+i*.07,.48,-.18),new T.Vector3(-.14+i*.07,.86,-.19),.009,color);
   box(chair,0,.90,-.19,.43,.09,.035,color);
  }
+ // Photo-based custom-painted Stokke: lime frame, two pinks, black crossbars.
+ const stokke=new T.Group();stokke.name='Custom lime and pink Stokke chair';
+ stokke.position.set(0,0,1.26);stokke.rotation.y=Math.PI;table.add(stokke);
+ const lime='#c5d74a',palePink='#e7bed8',pink='#ca81b5';
+ for(const x of [-.225,.225]){
+  box(stokke,x,.025,0,.045,.05,.53,lime);
+  // Slanted flat uprights rather than round chair legs.
+  const upright=box(stokke,x,.445,-.02,.045,.89,.065,lime);upright.rotation.x=-.28;
+  for(let j=0;j<11;j++){
+   const y=.18+j*.036,z=.10-(y-.18)*.285;
+   box(stokke,x-Math.sign(x)*.024,y,z,.007,.009,.071,'#a8bc38');
+  }
+  for(const y of [.16,.36,.70]){
+   const bolt=cylinder(stokke,x+Math.sign(x)*.026,y,.10-(y-.18)*.285,.008,.004,'#3f4540',.5);bolt.rotation.z=Math.PI/2;
+  }
+ }
+ box(stokke,0,.545,.025,.425,.025,.30,palePink);
+ box(stokke,0,.295,.095,.425,.026,.37,pink);
+ box(stokke,0,.77,-.10,.42,.095,.025,pink);
+ box(stokke,0,.87,-.13,.42,.095,.025,palePink);
+ for(const y of [.13,.40])rod(stokke,new T.Vector3(-.22,y,.03),new T.Vector3(.22,y,.03),.007,'#333b37');
+ // Finger slots at the leading edge of the adjustable boards.
+ box(stokke,.105,.559,.125,.033,.002,.008,'#8c6a7d');
+ box(stokke,.105,.309,.24,.033,.002,.008,'#865774');
  return table;
 }

@@ -14,6 +14,6 @@ Yellow: Edit target: attached photo of user's yellow still life painting. Produc
 
 ## Small landscape
 
-`small-landscape.png` was edited with the built-in image generation tool from PXL_20260905_110326676.jpg. Estimated canvas 45 × 15 cm, on the bedroom side of the living-room partition, beside the bed.
+`small-landscape.png` was edited with the built-in image generation tool from PXL_20260905_110326676.jpg. Estimated canvas 45 × 15 cm, on the bedroom side of the diagonal partition, above the bed.
 
 Prompt: Edit target: small landscape painting in supplied photo. Extract ONLY the painted canvas, remove wooden frame and brick wall, rectify perspective to a flat front-on rectangle with 3:1 width:height. Preserve the exact original composition, brushwork, green upright trees, ochre field, dark hills and pale sky, and signature as seen. Neutral even light. No redesign. Full bleed painting texture for a 3D model.

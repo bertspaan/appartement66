@@ -13,14 +13,6 @@ export function addHighShelves(parent:T.Group){
   const m=new T.Mesh(new T.CylinderGeometry(r,r*.87,h,20),new T.MeshStandardMaterial({color,roughness:.8}));
   m.position.set(x,y,z);m.castShadow=true;p.add(m);return m;
  }
- function plant(p:T.Group,x:number){
-  cylinder(p,x,2.32,.12,.045,.10,'#b87f65');
-  for(let i=0;i<7;i++){
-   const leaf=new T.Mesh(new T.SphereGeometry(1,10,8),new T.MeshStandardMaterial({color:i%2?'#739269':'#466d54',roughness:1}));
-   leaf.position.set(x+Math.sin(i*2.4)*.042,2.405+(i%3)*.019,.12+Math.cos(i*2.4)*.035);
-   leaf.scale.set(.018,.056,.027);leaf.rotation.z=Math.sin(i)*.6;p.add(leaf);
-  }
- }
  type Point=readonly[number,number];
  function run(name:string,a:Point,b:Point,kitchen=false){
   const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);
@@ -29,14 +21,39 @@ export function addHighShelves(parent:T.Group){
   // Small wall brackets, below the board.
   const brackets=Math.max(2,Math.ceil(length/.9));
   for(let i=0;i<brackets;i++){const x=.12+(length-.24)*i/(brackets-1);box(shelf,x,2.19,.025,.025,.13,.025,'#6e756b');box(shelf,x,2.23,.10,.025,.02,.18,'#6e756b');}
-  const count=Math.max(1,Math.floor(length/.7));
-  for(let i=0;i<count;i++){
-   const x=(i+.5)*length/count;
-   if(i%3===0)plant(shelf,x);
-   else if(kitchen){
-    for(let j=0;j<3;j++){const h=.13+j*.025;cylinder(shelf,x+(j-1)*.09,2.27+h/2,.12,.034,h,['#ddc99d','#a9b5a2','#c28d72'][j]);cylinder(shelf,x+(j-1)*.09,2.27+h+.008,.12,.037,.016,'#a18461');}
-   }else{
-    for(let j=0;j<5;j++){const h=.18+(j%3)*.022;box(shelf,x+(j-2)*.036,2.27+h/2,.115,.03,h,.15,['#617985','#bd896b','#dfd4b9','#6c7964','#926d76'][j]);}
+  if(!kitchen){
+   // Continuous rows, with varied book heights and spine colours.
+   const count=Math.floor((length-.08)/.033),step=(length-.08)/count;
+   for(let i=0;i<count;i++){
+    const x=.04+(i+.5)*step,h=.19+(i*7%9)*.014;
+    box(shelf,x,2.27+h/2,.115,step-.002,h,.17,['#617985','#bd896b','#dfd4b9','#6c7964','#926d76','#394a57','#ad9c6e'][i%7]);
+    box(shelf,x,2.27+h-.035,.201,step*.65,.004,.002,'#e9ddc7');
+   }
+  }else{
+   const count=Math.floor((length-.16)/.24),step=(length-.16)/count;
+   for(let i=0;i<count;i++){
+    const x=.08+(i+.5)*step;
+    if(i%4===0){
+     // Stacks of small plates.
+     for(let j=0;j<6;j++)cylinder(shelf,x,2.277+j*.012,.12,.087,.012,'#e4e0d1');
+    }else if(i%4===1){
+     const h=.16+(i%3)*.025;
+     cylinder(shelf,x,2.27+h/2,.12,.052,h,'#c2b28c');
+     cylinder(shelf,x,2.278+h,.12,.055,.016,'#9a805d');
+    }else if(i%4===2){
+     for(const offset of [-.055,.055]){
+      cylinder(shelf,x+offset,2.318,.11,.034,.096,'#8fa5a0');
+      const handle=new T.Mesh(new T.TorusGeometry(.025,.005,8,16),new T.MeshStandardMaterial({color:'#8fa5a0',roughness:.8}));
+      handle.position.set(x+offset+.041,2.324,.11);shelf.add(handle);
+     }
+    }else{
+     // Utensil crock with wooden spoons.
+     cylinder(shelf,x,2.33,.12,.048,.12,'#b88167');
+     for(let j=0;j<3;j++){
+      cylinder(shelf,x+(j-1)*.022,2.44,.12,.003,.20,'#c4a475');
+      const spoon=new T.Mesh(new T.SphereGeometry(1,10,8),wood);spoon.scale.set(.011,.025,.004);spoon.position.set(x+(j-1)*.022,2.53,.12);shelf.add(spoon);
+     }
+    }
    }
   }
  }

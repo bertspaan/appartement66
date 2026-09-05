@@ -14,9 +14,9 @@ export async function addPaintings(parent:T.Group){
  const specs=[{width:.75,height:1,x:a[0]-.068,y:1.65,z:2.50,rotation:-Math.PI/2,frame:.018,color:'#e6dfcb'},
   {width:.52,height:.52,x:a[0]+t*dx+dz/length*.068,y:1.85,z:a[1]+t*dz-dx/length*.068,
    rotation:Math.PI-Math.atan2(dz,dx),frame:.075,color:'#99968b'},
-  {width:.45,height:.15,x:a[0]+.068,y:1.40,z:2.65,rotation:Math.PI/2,frame:.018,color:'#ad8b70'}];
+  {width:.45,height:.15,x:a[0]+dx/length*.96-dz/length*.068,y:1.40,z:a[1]+dz/length*.96+dx/length*.068,rotation:-Math.atan2(dz,dx),frame:.018,color:'#ad8b70'}];
  specs.forEach((s,i)=>{
-  const painting=new T.Group();painting.name=['Blue juicer painting','Yellow still life painting','Small landscape beside the bed'][i];
+  const painting=new T.Group();painting.name=['Blue juicer painting','Yellow still life painting','Small landscape above the bed'][i];
   // Each frame follows its wall and faces into the living room.
   painting.position.set(s.x,s.y,s.z);painting.rotation.y=s.rotation;group.add(painting);
   const frameMaterial=new T.MeshStandardMaterial({color:s.color,roughness:.8});

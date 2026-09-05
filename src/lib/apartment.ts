@@ -5,7 +5,7 @@ import {addHighShelves} from './high-shelves';
 import {addPaintings} from './paintings';
 import {addPlanters} from './planters';
 import {addSketchLayout} from './sketch-layout';
-import {addTipBed,addTipTeenRoom,addPiano,addNordElectro,addLamps,addKitchenIsland,addFestEdgeSofa,addColumnBookshelves,addKitchenAppliances} from './furnishings';
+import {addBalconyBistroTable,addTipBed,addTipTeenRoom,addPiano,addNordElectro,addLamps,addKitchenIsland,addFestEdgeSofa,addColumnBookshelves,addKitchenAppliances} from './furnishings';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {PointerLockControls} from 'three/addons/controls/PointerLockControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -54,7 +54,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  addSketchLayout(partitions,o.doorOpen);
  addOwnedBed(furniture);if(o.tipAge==='teen')addTipTeenRoom(furniture);else{addTipBed(furniture);addTipAnimals(furniture);}if(o.instrument==='nord')addNordElectro(furniture);else addPiano(furniture);
  addFestEdgeSofa(furniture);addColumnBookshelves(furniture);
- box(furniture,-2.8,.23,2.05,.65,.1,1.1,'#8c6245');addKitchenIsland(furniture);addDiningTable(furniture);addKitchenAppliances(furniture);addCounterAppliances(furniture);
+ box(furniture,-2.8,.23,2.05,.65,.1,1.1,'#8c6245');addBalconyBistroTable(furniture);addKitchenIsland(furniture);addDiningTable(furniture);addKitchenAppliances(furniture);addCounterAppliances(furniture);
 
  }
  function view(mode:string){if(walk.isLocked)walk.unlock();orbit.enabled=true;camera.up.set(0,1,0);if(mode==='plan'){camera.position.set(-1,23,1.01);orbit.target.set(-1,0,1);}else if(mode==='walk'){camera.position.set(0,1.65,-1.8);camera.lookAt(0,1.65,2);walk.lock();}else{camera.position.set(-14,14,-15);orbit.target.set(-1,.6,1);}orbit.update();}

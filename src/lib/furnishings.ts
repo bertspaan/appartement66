@@ -56,7 +56,7 @@ export function addLamps(parent:T.Group){
  const lights:T.Light[]=[];const bulbs:T.MeshStandardMaterial[]=[];
  function glow(){const m=new T.MeshStandardMaterial({color:'#fff4d7',emissive:'#ffd59a',emissiveIntensity:0,roughness:.4});bulbs.push(m);return m;}
  // Baby-blue articulated floor lamp, matching the reference silhouette.
- const floor=new T.Group();floor.name='Baby-blue articulated floor lamp';floor.position.set(-3.70,0,2.95);group.add(floor);
+ const floor=new T.Group();floor.name='Baby-blue articulated floor lamp';floor.position.set(-4.44,0,3.40);floor.rotation.y=Math.PI/2;group.add(floor);
  const blue='#a8d2e9';mesh(floor,new T.CylinderGeometry(.18,.20,.045,32),material(blue,.35),0,.04,0);
  mesh(floor,new T.SphereGeometry(.075,20,12,0,Math.PI*2,0,Math.PI/2),material(blue,.35),0,.065,0);
  const joints=[[0,.14,0],[.30,.47,0],[-.035,.79,0],[.23,1.18,0],[-.13,1.68,0]].map(p=>new T.Vector3(...p as [number,number,number]));
@@ -281,5 +281,38 @@ export function addTipTeenRoom(parent:T.Group){
  // One childhood keepsake on the bed.
  ball(group,4.19,.70,3.05,.065,'#c1b394');ball(group,4.19,.79,3.05,.045,'#c1b394');
  for(const x of [4.16,4.22])ball(group,x,.83,3.05,.016,'#c1b394');
+ return group;
+}
+
+export function addBalconyBistroTable(parent:T.Group){
+ // Fatboy Toní Bistreau: Ø80 cm, 76 cm high; approximate Mist Green finish.
+ // https://www.fatboy.com/nl-nl/toni-bistreau-mist-green-103817.html
+ const group=new T.Group();group.name='Fatboy Toní Bistreau — Mist Green';group.position.set(-2.5,0,5.10);parent.add(group);
+ const green='#a6b7a1',coating=material(green,.25);
+ mesh(group,new T.CylinderGeometry(.40,.40,.025,64),coating,0,.7475,0);
+ const rim=mesh(group,new T.TorusGeometry(.387,.013,10,64),coating,0,.741,0);rim.rotation.x=Math.PI/2;
+ // Four gently splayed tubular legs and underside supports.
+ for(const x of [-1,1])for(const z of [-1,1]){
+  const top=new T.Vector3(x*.205,.727,z*.205),bottom=new T.Vector3(x*.265,.024,z*.265);
+  rod(group,bottom,top,.019,green);
+  mesh(group,new T.CylinderGeometry(.022,.024,.015,16),material('#677664'),bottom.x,.016,bottom.z);
+ }
+ for(const z of [-.205,.205])rod(group,new T.Vector3(-.205,.717,z),new T.Vector3(.205,.717,z),.014,green);
+ // Flush cover for the central parasol/candle-holder opening.
+ mesh(group,new T.CylinderGeometry(.021,.021,.002,24),material('#93a58e',.25),0,.761,0);
+ // Three compact outdoor chairs, facing the table and staying inside the railing.
+ for(const [x,z] of [[-.67,0],[.67,0],[0,.60]]){
+  const chair=new T.Group();chair.name='Mist-green balcony chair';chair.position.set(x,0,z);chair.rotation.y=Math.atan2(x,z);group.add(chair);
+  const seat=mesh(chair,new RoundedBoxGeometry(.43,.035,.42,3,.015),coating,0,.455,0);
+  for(const side of [-1,1]){
+   for(const depth of [-1,1])rod(chair,new T.Vector3(side*.20,.025,depth*.19),new T.Vector3(side*.17,.44,depth*.16),.012,green);
+   rod(chair,new T.Vector3(side*.18,.44,.17),new T.Vector3(side*.18,.83,.205),.012,green);
+  }
+  // Open slatted backs match the lightweight metal table.
+  for(let j=0;j<4;j++){
+   const slat=mesh(chair,new RoundedBoxGeometry(.39,.035,.018,2,.008),coating,0,.64+j*.058,.20);
+  }
+  for(const side of [-1,1])rod(chair,new T.Vector3(side*.17,.21,-.16),new T.Vector3(side*.17,.21,.16),.009,green);
+ }
  return group;
 }
