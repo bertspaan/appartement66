@@ -12,7 +12,25 @@
  function view(v:string){mode=v;api?.view(v);}
  onMount(()=>{let disposed=false;import('$lib/apartment').then(async m=>{const a=await m.createApartment(host,message=>hint=message);if(disposed){a.destroy();return;}api=a;ready=true;update();}).catch(e=>{console.error(e);error='Het model kon niet worden geladen. Vernieuw de pagina om het opnieuw te proberen.';});return()=>{disposed=true;api?.destroy();};});
 </script>
-<svelte:head><title>Appartement van Sarah, Bert &amp; Tip</title><meta name="description" content="Bekijk de indeling, materialen en verlichting van het appartement."/></svelte:head>
+<svelte:head><title>Appartement van Sarah, Bert &amp; Tip</title><meta name="description" content="Bekijk de indeling, materialen en verlichting van het appartement."/>
+ <link rel="canonical" href="https://bertspaan.nl/appartement66/"/>
+ <meta property="og:type" content="website"/>
+ <meta property="og:locale" content="nl_NL"/>
+ <meta property="og:site_name" content="Appartement van Sarah, Bert &amp; Tip"/>
+ <meta property="og:title" content="Appartement van Sarah, Bert &amp; Tip"/>
+ <meta property="og:description" content="Neem een kijkje in ons appartement: indeling, meubels en balkon in 3D."/>
+ <meta property="og:url" content="https://bertspaan.nl/appartement66/"/>
+ <meta property="og:image" content="https://bertspaan.nl/appartement66/og-apartment.jpg"/>
+ <meta property="og:image:type" content="image/jpeg"/>
+ <meta property="og:image:width" content="1200"/>
+ <meta property="og:image:height" content="630"/>
+ <meta property="og:image:alt" content="3D-overzicht van het appartement van Sarah, Bert en Tip, met meubels en balkon."/>
+ <meta name="twitter:card" content="summary_large_image"/>
+ <meta name="twitter:title" content="Appartement van Sarah, Bert &amp; Tip"/>
+ <meta name="twitter:description" content="Neem een kijkje in ons appartement: indeling, meubels en balkon in 3D."/>
+ <meta name="twitter:image" content="https://bertspaan.nl/appartement66/og-apartment.jpg"/>
+ <meta name="twitter:image:alt" content="3D-overzicht van het appartement van Sarah, Bert en Tip, met meubels en balkon."/>
+</svelte:head>
 <div class="app">
  <header><a href={`${base}/`} class="brand"><img class="mark" src={`${base}/favicon.svg`} alt="" width="28" height="28"/> <span class="apartment-name">Appartement van Sarah, Bert &amp; Tip</span></a><span class="badge">ZUIDOOST · 4E VERDIEPING</span></header>
  <main>

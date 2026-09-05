@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {separateInteriorSurfaces} from './geometry-clearance';
 import {base} from '$app/paths';
 import {addOwnedBed,addCounterAppliances,addTipAnimals,addDiningTable} from './household';
 import {addBalconyStringLights} from './balcony-lights';
@@ -19,6 +20,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  const walk=new PointerLockControls(camera,renderer.domElement);walk.addEventListener('lock',()=>{orbit.enabled=false;onState('↑/↓ of W/S: lopen · ←/→: draaien · A/D: zijwaarts · muis: kijken · Esc: stoppen');});walk.addEventListener('unlock',()=>{keys.clear();orbit.enabled=true;orbit.target.copy(camera.position).add(camera.getWorldDirection(new T.Vector3()).multiplyScalar(4));onState('Slepen om te draaien · scrollen om te zoomen · slepen met de rechtermuisknop om te verschuiven');});
  const model=new T.Group();scene.add(model);const loader=new GLTFLoader();
  const [shell,existing,floor,balcony]=await Promise.all(['shell','existing','floor','balcony'].map(n=>loader.loadAsync(`${base}/model/${n}.glb`)));
+ separateInteriorSurfaces(shell.scene);separateInteriorSurfaces(existing.scene);
  for(const g of [shell,existing,floor,balcony]){model.add(g.scene);g.scene.traverse(o=>{if(o instanceof T.Mesh){o.castShadow=true;o.receiveShadow=true;const mats=Array.isArray(o.material)?o.material:[o.material];mats.forEach(m=>{if(m instanceof T.MeshStandardMaterial)m.roughness=m.transparent?.15:.8;if(m.transparent)o.castShadow=false;});}});}
  // Replace the low source landscaping trays with the user's metre-high planters.
  balcony.scene.traverse(o=>{if(o instanceof T.Mesh){const source=String(o.userData.source_path??'').toLowerCase();if(source.includes('groenvoorziening')||source.includes('terreinmaterialen'))o.visible=false;}});
@@ -59,7 +61,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  box(furniture,-2.8,.23,2.05,.65,.1,1.1,'#8c6245');addBalconyBistroTable(furniture);addKitchenIsland(furniture);addDiningTable(furniture);addKitchenAppliances(furniture);addCounterAppliances(furniture);
 
  }
- function view(mode:string){if(walk.isLocked)walk.unlock();orbit.enabled=true;camera.up.set(0,1,0);if(mode==='plan'){camera.position.set(-1,23,1.01);orbit.target.set(-1,0,1);}else if(mode==='walk'){camera.position.set(0,1.65,-1.8);camera.lookAt(0,1.65,2);walk.lock();}else{camera.position.set(-14,14,-15);orbit.target.set(-1,.6,1);}orbit.update();}
+ function view(mode:string){if(walk.isLocked)walk.unlock();orbit.enabled=true;camera.up.set(0,1,0);if(mode==='plan'){camera.position.set(-1,23,1.01);orbit.target.set(-1,0,1);}else if(mode==='walk'){camera.position.set(0,1.65,-1.8);camera.lookAt(0,1.65,2);walk.lock();}else{camera.position.set(-17,14,14);orbit.target.set(-1,.6,1);}orbit.update();}
  const keys=new Set<string>();const down=(e:KeyboardEvent)=>{if(walk.isLocked){keys.add(e.code);if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code))e.preventDefault();}};const up=(e:KeyboardEvent)=>keys.delete(e.code);const blur=()=>keys.clear();window.addEventListener('keydown',down);window.addEventListener('keyup',up);window.addEventListener('blur',blur);
  const resize=new ResizeObserver(()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();});resize.observe(host);
  const turnRotation=new T.Quaternion(),upAxis=new T.Vector3(0,1,0);
