@@ -310,7 +310,7 @@ export function addTipTeenRoom(parent:T.Group,posterTextures:T.Texture[]){
 export function addBalconyBistroTable(parent:T.Group){
  // Fatboy Toní Bistreau: Ø80 cm, 76 cm high; approximate Mist Green finish.
  // https://www.fatboy.com/nl-nl/toni-bistreau-mist-green-103817.html
- const group=new T.Group();group.name='Fatboy Toní Bistreau — Mist Green';group.position.set(-2.5,0,5.10);parent.add(group);
+ const group=new T.Group();group.name='Fatboy Toní Bistreau — Mist Green';group.position.set(-2.5,0,5.61);parent.add(group);
  const green='#a6b7a1',coating=material(green,.25);
  mesh(group,new T.CylinderGeometry(.40,.40,.025,64),coating,0,.7475,0);
  const rim=mesh(group,new T.TorusGeometry(.387,.013,10,64),coating,0,.741,0);rim.rotation.x=Math.PI/2;
@@ -323,9 +323,16 @@ export function addBalconyBistroTable(parent:T.Group){
  for(const z of [-.205,.205])rod(group,new T.Vector3(-.205,.717,z),new T.Vector3(.205,.717,z),.014,green);
  // Flush cover for the central parasol/candle-holder opening.
  mesh(group,new T.CylinderGeometry(.021,.021,.002,24),material('#93a58e',.25),0,.761,0);
- // Three compact outdoor chairs, facing the table and staying inside the railing.
- for(const [x,z] of [[-.67,0],[.67,0],[0,.60]]){
-  const chair=new T.Group();chair.name='Mist-green balcony chair';chair.position.set(x,0,z);chair.rotation.y=Math.atan2(x,z);group.add(chair);
+ // Table sits 2 cm from the glass; chairs sit beside it and on the apartment side.
+ for(const [x,z] of [[-.67,0],[.67,0],[0,-.60]]){
+  addBalconyChair(group,x,z,Math.atan2(x,z));
+ }
+ return group;
+}
+
+function addBalconyChair(parent:T.Group,x:number,z:number,rotation:number){
+ const green='#a6b7a1',coating=material(green,.25);
+  const chair=new T.Group();chair.name='Mist-green balcony chair';chair.position.set(x,0,z);chair.rotation.y=rotation;parent.add(chair);
   const seat=mesh(chair,new RoundedBoxGeometry(.43,.035,.42,3,.015),coating,0,.455,0);
   for(const side of [-1,1]){
    for(const depth of [-1,1])rod(chair,new T.Vector3(side*.20,.025,depth*.19),new T.Vector3(side*.17,.44,depth*.16),.012,green);
@@ -336,6 +343,23 @@ export function addBalconyBistroTable(parent:T.Group){
    const slat=mesh(chair,new RoundedBoxGeometry(.39,.035,.018,2,.008),coating,0,.64+j*.058,.20);
   }
   for(const side of [-1,1])rod(chair,new T.Vector3(side*.17,.21,-.16),new T.Vector3(side*.17,.21,.16),.009,green);
+ return chair;
+}
+
+export function addRectangularBalconyTable(parent:T.Group){
+ // 140 × 75 cm, lengthwise beside the glass with a 2 cm clearance.
+ const group=new T.Group();group.name='Rectangular balcony dining table with three chairs';
+ group.position.set(-6.755,0,2.50);parent.add(group);
+ const wood='#b6946b',green='#a6b7a1';
+ for(let i=0;i<6;i++)box(group,-.3125+i*.125,.745,0,.119,.035,1.40,wood);
+ for(const x of [-.31,.31])for(const z of [-.60,.60]){
+  rod(group,new T.Vector3(x,.025,z),new T.Vector3(x,.727,z),.018,green);
  }
+ for(const x of [-.31,.31])box(group,x,.69,0,.025,.04,1.24,green);
+ for(const z of [-.60,.60])box(group,0,.69,z,.65,.04,.025,green);
+ // Chairs at both ends and on the apartment side; none between table and glass.
+ addBalconyChair(group,0,-1.03,Math.PI);
+ addBalconyChair(group,0,1.03,0);
+ addBalconyChair(group,.57,0,Math.PI/2);
  return group;
 }

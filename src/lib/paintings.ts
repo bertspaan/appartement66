@@ -5,7 +5,7 @@ import {sketch,getInstrumentPlacement} from './sketch-layout';
 export async function addPaintings(parent:T.Group){
  const group=new T.Group();group.name='Family paintings';
  const loader=new T.TextureLoader();
- const textures=await Promise.all(['blue-juicer','yellow-still-life','small-landscape'].map(name=>loader.loadAsync(`${base}/art/${name}.png`)));
+ const textures=await Promise.all(['blue-juicer','yellow-still-life','small-landscape'].map(name=>loader.loadAsync(`${base}/optimized/art/${name}.webp`)));
  // Estimated canvas sizes, pending measurements of the originals.
  const a=sketch.bedroomFrontLeft,b=sketch.bedroomFrontRight;
  const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);

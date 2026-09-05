@@ -86,4 +86,17 @@ This starts a temporary local Vite server, opens `/preview-render/` in headless 
 
 Run the command after changing the model and before building or committing the updated preview. It does not commit or publish anything. If rendering fails, the previous image is preserved.
 
-The permanent render page is also available at `/preview-render/` under the site's base path (production: `/appartement66/preview-render/`). It uses the same initial camera as the app and keeps the enlarged composition with the title and logo. Edit `src/routes/preview-render/+page.svelte` to change its framing or furniture options.
+The permanent render page is also available at `/preview-render/` under the site's base path (production: `/appartement66/preview-render/`). It uses a dedicated overview distance and keeps the enlarged composition with the title and logo. Edit `src/routes/preview-render/+page.svelte` to change its framing or furniture options.
+
+## Performance and generated assets
+
+`npm run build` automatically creates optimized runtime assets before Vite builds the site. The same generation runs when starting the dev server or rendering the social preview. Originals remain in `static/art/` and `static/model/`; generated files live in ignored `static/optimized/`. A content-hash cache skips unchanged inputs. Run `npm run optimize:assets` to regenerate while a dev server is already running.
+
+- Paintings become WebP images with a maximum dimension of 1024 px; posters use 512 px. Aspect ratios and poster texture crops are preserved.
+- GLB files use glTF Transform vertex welding and deduplication, preserving source metadata and architectural dimensions. No lossy wall simplification is applied.
+- The production build removes the original runtime images/models from `build/`, keeping only the optimized copies. Source files in the project are never deleted.
+- Static opaque details are batched by material. Tiny spheres and rods use fewer segments; transparent surfaces, moving door leaves, textures and lamp materials remain separate.
+- Furniture is built once; changing Tip's age or instrument only replaces that variant. Floor, lighting and door controls do not rebuild the furniture.
+- Rendering sleeps when the camera and scene are idle. Shadows are cached until geometry, visibility or lighting changes. Orbit damping, keyboard movement and mouse look request frames as needed.
+
+Run `npm run benchmark` with installed macOS Chrome (or `CHROME_PATH`) to measure draw calls, geometry, update time and idle frames. It also checks variant switching, geometry cleanup, cached shadows and overview arrow keys. `createApartment().stats()` exposes these counters for development; they are not shown in the website UI.

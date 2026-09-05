@@ -3,8 +3,8 @@ import * as T from 'three';
 /** Wooden leaf with a configurable hinge side and lever handles on both sides. */
 export function addWoodenDoor(parent:T.Object3D,width:number,height:number,swingDirection=1,hingeSide:-1|1=-1){
  const door=new T.Group();door.name='Wooden door with lever handles';parent.add(door);
- const wood=new T.MeshStandardMaterial({color:'#bf9566',roughness:.68});
- const grain=new T.MeshStandardMaterial({color:'#ac8053',roughness:.8});
+ const wood=new T.MeshStandardMaterial({color:'#e1c7a1',roughness:.68});
+ const grain=new T.MeshStandardMaterial({color:'#cdb18a',roughness:.8});
  const brass=new T.MeshStandardMaterial({color:'#b79860',metalness:.75,roughness:.3});
  const leaf=new T.Mesh(new T.BoxGeometry(width,height,.04),wood);leaf.position.y=height/2;leaf.castShadow=true;leaf.receiveShadow=true;door.add(leaf);
  for(const side of [-1,1]){

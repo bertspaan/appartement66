@@ -1,3 +1,7 @@
 import {sveltekit} from '@sveltejs/kit/vite';
 import {defineConfig} from 'vite';
-export default defineConfig({plugins:[sveltekit()]});
+import {optimizeAssets} from './scripts/optimize-assets.mjs';
+export default defineConfig(async()=>{
+ await optimizeAssets();
+ return {plugins:[sveltekit()]};
+});

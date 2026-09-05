@@ -5,7 +5,7 @@ import catalog from '../../static/art/teen-posters/sources.json';
 export async function loadTeenPosterTextures(){
  const loader=new T.TextureLoader();
  return Promise.all(catalog.map(async item=>{
-  const texture=await loader.loadAsync(`${base}/art/teen-posters/${item.file}`);
+  const texture=await loader.loadAsync(`${base}/optimized/art/teen-posters/${item.file.replace(/\.[^.]+$/,'.webp')}`);
   texture.colorSpace=T.SRGBColorSpace;
   // Square retailer photos have equal white side margins around a 2:3 print.
   if(texture.image.width===texture.image.height){texture.repeat.x=2/3;texture.offset.x=1/6;}

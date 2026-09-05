@@ -5,7 +5,7 @@ import catalog from '../../static/art/child-posters/sources.json';
 export async function loadChildPosterTextures(){
  const loader=new T.TextureLoader();
  return Promise.all(catalog.map(async (item,i)=>{
-  const texture=await loader.loadAsync(`${base}/art/child-posters/${item.file}`);
+  const texture=await loader.loadAsync(`${base}/optimized/art/child-posters/${item.file.replace(/\.[^.]+$/,'.webp')}`);
   texture.colorSpace=T.SRGBColorSpace;
   // Show the print itself, excluding the retailer photograph's white margins.
   if(i===0){texture.repeat.set(642/1005,959/1005);texture.offset.set(168/1005,20/1005);}
