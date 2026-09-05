@@ -75,8 +75,8 @@ export function addLamps(parent:T.Group){
  mesh(pendant,new T.SphereGeometry(.06,16,12),glow(),0,2.10,0).castShadow=false;
  const diningLight=new T.PointLight('#ffe0ac',0,7,2);diningLight.position.set(0,2.025,0);pendant.add(diningLight);lights.push(diningLight);
  // Parent bedside lamp and Tip's warm wall light.
- box(group,1.55,.25,3.10,.40,.47,.40,'#b9936b');
- for(const [x,y,z,name] of [[1.55,.51,3.10,'Bedside lamp'],[4.48,1.68,.70,'Tip wall lamp']] as const){
+ box(group,1.55,.25,3.43,.40,.47,.40,'#b9936b');
+ for(const [x,y,z,name] of [[1.55,.51,3.43,'Bedside lamp'],[4.48,1.68,.70,'Tip wall lamp']] as const){
   const lamp=new T.Group();lamp.name=name;lamp.position.set(x,y,z);group.add(lamp);
   mesh(lamp,new T.CylinderGeometry(.075,.10,.025,20),material('#b4a180'),0,.015,0);
   rod(lamp,new T.Vector3(0,.03,0),new T.Vector3(0,.19,0),.014,'#8c806d');

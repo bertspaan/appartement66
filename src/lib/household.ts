@@ -25,11 +25,11 @@ export function addOwnedBed(parent:T.Group){
  for(let i=0;i<8;i++)box(bed,0,.709,-.81+i*.23,1.43,.002,.003,'#e4e0d7');
  // Small wood knots in the exposed footboard.
  for(const x of [-.57,-.20,.36]){const knot=ellipsoid(bed,x,.44,-1.033,.025,.010,.002,'#aa8052');knot.rotation.z=.3;}
- // Turn the head toward the living-room partition; keep the nearest corner 2 cm clear.
- bed.rotation.y=-Math.PI/4;
+ // Quarter-turn: head end against the long bedroom divider, with 2 cm clearance.
+ bed.rotation.y=Math.PI/2;
  bed.position.set(0,0,2.30);
  const bounds=new T.Box3().setFromObject(bed);
- bed.position.x=sketch.bedroomFrontLeft[0]+.05+.02-bounds.min.x;
+ bed.position.x=sketch.bedroomDividerX-.05-.02-bounds.max.x;
  return bed;
 }
 export function addCounterAppliances(parent:T.Group){
