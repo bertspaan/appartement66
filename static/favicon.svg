@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Tips geelgroene en roze stoel</title>
+  <rect width="64" height="64" rx="13" fill="#fff9ee"/>
+  <!-- Slanted lime side frames and floor runners. -->
+  <path d="M15 10 23 54M43 10 51 54" fill="none" stroke="#89982b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M15 9 23 53M43 9 51 53M14 55H29M42 55H56" fill="none" stroke="#c6d843" stroke-width="5" stroke-linecap="round"/>
+  <!-- Pink backrest, seat and lower footplate. -->
+  <path d="M18 13H40V20H19Z" fill="#e6b3d3"/>
+  <path d="M20 24H43V30H21Z" fill="#cc77b1"/>
+  <path d="M20 33H45L51 39H25Z" fill="#e6b3d3" stroke="#bc78a5" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M24 44H49L55 50H28Z" fill="#cc77b1" stroke="#ac6596" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

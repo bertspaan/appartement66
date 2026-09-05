@@ -20,9 +20,25 @@ export function addOwnedBed(parent:T.Group){
  for(let i=0;i<14;i++)box(bed,0,.40,-.90+i*.138,1.47,.035,.08,'#d4b98f');
  box(bed,0,.57,0,1.47,.24,1.91,'#eeeae0');
  box(bed,0,.699,0,1.48,.018,1.92,'#f6f2e9');
- // Mattress piping and subtle quilting, without pillows or bedding.
+ // Mattress piping and subtle quilting below the duvet.
  for(const x of [-.738,.738])box(bed,x,.48,0,.007,.012,1.89,'#d7d2c8');
  for(let i=0;i<8;i++)box(bed,0,.709,-.81+i*.23,1.43,.002,.003,'#e4e0d7');
+ // Yellow duvet with a pink turned-back lining and softly rounded pillows.
+ function fabric(x:number,y:number,z:number,w:number,h:number,d:number,color:string){
+  const cloth=new T.Mesh(new RoundedBoxGeometry(w,h,d,4,Math.min(h/2-.001,.045)),material(color));
+  cloth.position.set(x,y,z);cloth.castShadow=true;cloth.receiveShadow=true;bed.add(cloth);return cloth;
+ }
+ fabric(0,.755,-.22,1.55,.10,1.51,'#e6bf56');
+ fabric(0,.809,.43,1.55,.052,.27,'#db9eb4');
+ // Short draped sides keep the wooden frame visible.
+ for(const x of [-.76,.76])fabric(x,.685,-.23,.047,.19,1.49,'#dbb34f');
+ for(const [x,color] of [[-.375,'#e8bdca'],[.375,'#f1d071']] as const){
+  const pillow=fabric(x,.795,.72,.65,.16,.41,color);pillow.rotation.y=x<0?-.035:.03;
+ }
+ // Gentle raised folds across the foot of the duvet.
+ for(let i=0;i<3;i++){
+  const fold=fabric(-.32+i*.30,.805,-.72+i*.07,.22,.016,.035,'#eac660');fold.rotation.y=.13-i*.10;
+ }
  // Small wood knots in the exposed footboard.
  for(const x of [-.57,-.20,.36]){const knot=ellipsoid(bed,x,.44,-1.033,.025,.010,.002,'#aa8052');knot.rotation.z=.3;}
  // Head end against the diagonal wall, on the solid section before the doorway.

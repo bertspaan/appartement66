@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {base} from '$app/paths';
 import {addOwnedBed,addCounterAppliances,addTipAnimals,addDiningTable} from './household';
+import {addBalconyStringLights} from './balcony-lights';
 import {addHighShelves} from './high-shelves';
 import {addPaintings} from './paintings';
 import {addPlanters} from './planters';
@@ -42,6 +43,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  const hemi=new T.HemisphereLight('#dcecff','#a19a91',2);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff1da',3);sun.position.set(-4,9,8);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-9,right:9,top:9,bottom:-9,near:.5,far:30});sun.shadow.normalBias=.025;scene.add(sun);
  const lamps=addLamps(model);
+ const balconyLights=addBalconyStringLights(model);
  const paintings=await addPaintings(model);
  const ground=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({color:'#dde3e7',roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.42;ground.receiveShadow=true;scene.add(ground);
  const grid=new T.GridHelper(20,20,'#aab7be','#cbd3d8');grid.position.y=-.405;scene.add(grid);
@@ -49,7 +51,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  function clear(group:T.Group){for(const obj of [...group.children]){obj.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose());}});group.remove(obj);}}
  function update(o:Options){furniture.visible=o.furniture;
  (finish.material as T.MeshStandardMaterial).color.set(o.floor==='oak'?'#b58d60':o.floor==='concrete'?'#b8b8b3':'#73523e');
- hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;scene.background=new T.Color(o.light==='evening'?'#303943':'#e9edf0');lamps.setEvening(o.light==='evening');
+ hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;scene.background=new T.Color(o.light==='evening'?'#303943':'#e9edf0');lamps.setEvening(o.light==='evening');balconyLights.setEvening(o.light==='evening');
  clear(partitions);clear(furniture);
  addSketchLayout(partitions,o.doorOpen);
  addOwnedBed(furniture);if(o.tipAge==='teen')addTipTeenRoom(furniture);else{addTipBed(furniture);addTipAnimals(furniture);}if(o.instrument==='nord')addNordElectro(furniture);else addPiano(furniture);
