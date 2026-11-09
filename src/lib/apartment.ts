@@ -1,7 +1,6 @@
 import {addEntranceFurniture} from './entrance-furniture';
 import {addCardboardHouse} from './cardboard-house';
 import {addStandingDesk} from './standing-desk';
-import {addKitchenRack} from './kitchen-rack';
 import {addOwnedArmchair} from './furnishings';
 import {optimizeScene} from './optimize-scene';
 import {addStorageShelves} from './storage-shelves';
@@ -87,7 +86,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   setWoodenDoorsOpen(model,o.doorsOpen);
   if(!previous){
    const fixed=new T.Group();fixed.name='Fixed furniture';furniture.add(fixed);
-   addOwnedArmchair(fixed);addKitchenRack(fixed);addStandingDesk(fixed);addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);addColumnBookshelves(fixed);
+   addOwnedArmchair(fixed);addStandingDesk(fixed);addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);addColumnBookshelves(fixed);
    addBalconyBistroTable(fixed);addRectangularBalconyTable(fixed);addKitchenIsland(fixed);addDiningTable(fixed);addKitchenAppliances(fixed);addCounterAppliances(fixed);
    optimizeScene(fixed);furnitureBuilds++;
   }

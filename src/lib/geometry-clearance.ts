@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {kitchen as kitchenLayout} from './kitchen-layout';
 
 // The source kitchen backs and service-wall ends share z=-3.785 with the
 // concrete envelope's inside face. Separate them by 15 mm in the preview.
@@ -9,7 +10,10 @@ export function separateInteriorSurfaces(root:T.Object3D){
   if(!(object instanceof T.Mesh))return;
   const source=String(object.userData.source_path??'').toLowerCase();
   const layer=String(object.userData.layer??'');
-  const kitchen=source.includes('73__keuken')||source.includes('inductiekookplaat');
+  const cabinets=source.includes('73__keuken');
+  const hob=source.includes('inductiekookplaat');
+  const sink=source.includes('56_expansievat_spoelbak');
+  const kitchen=cabinets||hob||sink;
   const wall=layer==='IfcWall';
   if(!kitchen&&!wall)return;
   const original=object.geometry as T.BufferGeometry;original.computeBoundingBox();
@@ -18,8 +22,14 @@ export function separateInteriorSurfaces(root:T.Object3D){
   const endAtEnvelope=wall&&Math.abs(bounds.min.z-wallFace)<.001&&bounds.max.z>wallFace+.05;
   if(!kitchen&&!endAtEnvelope)return;
   const geometry=original.clone();
-  // Move the kitchen 5 cm left to clear the fridge in the opposite corner.
-  if(kitchen)geometry.translate(-.05,0,clearance);
+  // Align the source's three cabinets, hob and sink with the planned modules.
+  // Source geometry is retained; the originals on disk are never modified.
+  if(kitchen){
+   const offset=cabinets?kitchenLayout.dishwasherX-(-1.98)
+    :hob?kitchenLayout.hobX-(-2.513279676)
+    :kitchenLayout.sinkX-(-1.38);
+   geometry.translate(offset,0,clearance);
+  }
   else{
    const positions=geometry.getAttribute('position');
    for(let i=0;i<positions.count;i++)if(positions.getZ(i)<wallFace+clearance)positions.setZ(i,wallFace+clearance);

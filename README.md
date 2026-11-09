@@ -42,6 +42,8 @@ The app now displays only the hand-sketched layout. Layout switching and the mod
 
 ## Furniture and divider update
 
+The kitchen now follows the November 2026 IKEA planner arrangement: fridge, 60 cm worktop cabinet, hob/oven, dishwasher, sink, and a second 60 cm worktop cabinet. Module centres are 855, 1455, 2055, 2655, 3255 and 3855 mm from the left inner wall; coordinates live in `src/lib/kitchen-layout.ts`. The steel kitchen rack is omitted. The espresso machine and kettle sit on the right-hand worktop. The supplied connection drawing places KO at 1930 mm; the sink/drain position is schematic and needs site verification. The local model retains its 950 mm worktop height and 1200 × 550 mm island; these are not the IKEA planner's final construction dimensions. Source SketchUp/GLB files are preserved, and the transforms are included in visible-model exports.
+
 The bedroom divider centre is x=1.94 m, so its 5 cm half-thickness reaches the start of the source window frame at x=1.99 m (43 cm farther right than before). Tip has an approximate 1.04 × 2.10 m loft bunk with toys below. The upright piano is 1.35 m wide and follows the diagonal on the living-room side of the translucent partition. The baby-blue floor lamp follows the supplied articulated-lamp reference; its dimensions are approximate. Dining, bedside and child-room lights are also included and illuminate in evening mode. Furniture is shown by default.
 
 ## GitHub Pages
