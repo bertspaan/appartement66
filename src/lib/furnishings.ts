@@ -213,8 +213,8 @@ export function addKitchenAppliances(parent:T.Group){
  for(const x of [-.20,.20]){const knob=mesh(oven,new T.CylinderGeometry(.024,.024,.018,20),material('#434a4d',.5),x,.79,.045);knob.rotation.x=Math.PI/2;}
  box(oven,0,.79,.033,.12,.038,.009,'#172625');
  for(let i=0;i<5;i++)box(oven,-.16+i*.08,.15,.025,.055,.009,.008,'#171d20');
- // Matching worktop cabinets at both ends of the hob/dishwasher/sink run.
- for(const [name,x] of [['Worktop cabinet beside hob',kitchen.leftWorktopX],['Worktop cabinet beside sink',kitchen.rightWorktopX]] as const){
+ // Closed preparation cabinet beside the hob.
+ for(const [name,x] of [['Worktop cabinet beside hob',kitchen.leftWorktopX]] as const){
  const cabinet=new T.Group();cabinet.name=name;cabinet.position.set(x,0,-3.47);group.add(cabinet);
  box(cabinet,0,.045,0,.56,.09,.53,'#4a4842');
  box(cabinet,0,.50,0,.60,.82,.60,'#b89d79');
@@ -223,6 +223,23 @@ export function addKitchenAppliances(parent:T.Group){
  box(cabinet,0,.805,.307,.58,.17,.025,'#c6ac86');
  box(cabinet,0,.81,.335,.24,.018,.025,'#565950');
  box(cabinet,.22,.64,.335,.018,.15,.025,'#565950');
+ }
+ // Open carcasses: three removable shelves at the left, none under the coffee machine.
+ for(const [name,x,shelves] of [
+  ['Open kitchen cabinet with three shelves',kitchen.leftWorktopX-kitchen.moduleWidth,3],
+  ['Open recycling cabinet below coffee machine',kitchen.rightWorktopX,0],
+ ] as const){
+  const cabinet=new T.Group();cabinet.name=name;cabinet.position.set(x,0,-3.47);group.add(cabinet);
+  box(cabinet,0,.045,-.025,.56,.09,.48,'#4a4842');
+  for(const side of [-1,1])box(cabinet,side*.291,.50,0,.018,.82,.60,'#c6ac86');
+  box(cabinet,0,.50,-.291,.564,.82,.018,'#b89d79');
+  box(cabinet,0,.099,0,.564,.018,.60,'#c6ac86');
+  box(cabinet,0,.901,0,.564,.018,.60,'#c6ac86');
+  for(let i=0;i<shelves;i++){
+   const shelf=box(cabinet,0,.108+(i+1)*.784/(shelves+1),.009,.564,.018,.564,'#c6ac86');
+   shelf.name=`Removable shelf ${i+1}`;
+  }
+  box(cabinet,0,.93,.0075,.60,.04,.62,'#e2ddd1');
  }
  // Built-under 60 cm dishwasher immediately right of the oven.
  // Its front replaces the visible cabinet face, below the existing worktop.
