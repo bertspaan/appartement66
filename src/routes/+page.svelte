@@ -12,7 +12,7 @@
   sync();media.addEventListener('change',sync);return()=>media.removeEventListener('change',sync);
  });
  let tipAge:'child'|'teen'='child';
- let instrument:'upright'|'nord'='upright';
+ let instrument:'upright'|'nord'='nord';
  let floor='oak',light='day',furniture=true,doorOpen=0,doorsOpen=false;
  let hallway:HallwayMode='sliding';
  let ready=false,error='',hint='Het appartement laden…',mode='orbit';

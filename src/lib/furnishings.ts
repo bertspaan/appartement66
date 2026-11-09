@@ -275,11 +275,29 @@ export function addNordElectro(parent:T.Group){
  // Official case dimensions: 1066 × 104 × 294 mm. Stand and stool are approximate.
  // https://www.nordkeyboards.com/products/nord-electro-7/specifications/
  const red='#bc2635',black='#25292b';
- for(const z of [-.10,.10]){
-  rod(group,new T.Vector3(-.36,.04,z),new T.Vector3(.34,.70,z),.018,black);
-  rod(group,new T.Vector3(.36,.04,z),new T.Vector3(-.34,.70,z),.018,black);
+ // Photo-based folding table stand: rectangular steel tubing and four splayed legs.
+ const stand=new T.Group();stand.name='Four-legged folding keyboard stand';group.add(stand);
+ const steel=material('#343638',.55);
+ function tube(a:T.Vector3,b:T.Vector3,width=.032,depth=width){
+  const beam=mesh(stand,new T.BoxGeometry(width,a.distanceTo(b),depth),steel);
+  beam.position.copy(a).add(b).multiplyScalar(.5);
+  beam.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),b.clone().sub(a).normalize());
  }
- for(const x of [-.36,.36]){box(group,x,.025,0,.07,.04,.43,black);box(group,x,.69,0,.05,.025,.30,black);}
+ for(const z of [-.13,.13])tube(new T.Vector3(-.48,.68,z),new T.Vector3(.48,.68,z));
+ for(const side of [-1,1]){
+  const x=side*.48;
+  tube(new T.Vector3(x,.68,-.15),new T.Vector3(x,.68,.15),.045,.035);
+  box(stand,x,.698,0,.045,.004,.28,'#151719');
+  for(const end of [-1,1]){
+   const top=new T.Vector3(x,.665,end*.13),foot=new T.Vector3(side*.53,.025,end*.23);
+   tube(foot,top);
+   // Folding braces run from the upper side rail down to each leg.
+   tube(new T.Vector3(x,.655,-end*.07),foot.clone().lerp(top,.63),.015,.009);
+   const hinge=mesh(stand,new T.CylinderGeometry(.010,.010,.038,12),material('#8b8e90',.65),x,.635,end*.135);
+   hinge.rotation.z=Math.PI/2;
+   mesh(stand,new T.CylinderGeometry(.022,.025,.012,16),material('#17191b'),foot.x,.009,foot.z);
+  }
+ }
  box(group,0,.742,0,1.066,.084,.294,red);
  for(const x of [-.521,.521])box(group,x,.752,0,.024,.104,.294,'#aa2632');
  // 43 white keys and 30 black keys: E–E over six octaves.
