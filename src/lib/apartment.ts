@@ -76,7 +76,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  let furnitureBuilds=0;
  function update(o:Options){
   furniture.visible=o.furniture;
-  (finish.material as T.MeshStandardMaterial).color.set(o.floor==='oak'?'#b58d60':o.floor==='concrete'?'#b8b8b3':'#73523e');
+  (finish.material as T.MeshStandardMaterial).color.set(o.floor==='oak'?'#b58d60':o.floor==='concrete'?'#b8b8b3':o.floor==='yellow-concrete'?'#e8d88d':'#73523e');
   if(!previous||previous.light!==o.light){
    hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;host.style.background=o.light==='evening'?eveningBackground:dayBackground;lamps.setEvening(o.light==='evening');balconyLights.setEvening(o.light==='evening');
   }
