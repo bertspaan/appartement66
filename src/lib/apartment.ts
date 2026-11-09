@@ -1,3 +1,4 @@
+import {addKitchenSink} from './kitchen-sink';
 import {addEntranceFurniture} from './entrance-furniture';
 import {addCardboardHouse} from './cardboard-house';
 import {addStandingDesk} from './standing-desk';
@@ -45,6 +46,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  balcony.scene.traverse(o=>{if(o instanceof T.Mesh){const source=String(o.userData.source_path??'').toLowerCase();if(source.includes('groenvoorziening')||source.includes('terreinmaterialen'))o.visible=false;}});
  shell.scene.traverse(object=>{if(object instanceof T.Mesh&&String(object.userData.source_path).includes('Expansievat_wasmachine'))object.visible=false;});
  furnishBathrooms(shell.scene,model);
+ addKitchenSink([shell.scene,existing.scene],model);
  replaceServiceDoorLeaves(existing.scene,model);addEntranceDoorHandles(model);
  addPlanters(model);addHighShelves(model);
  // Use the original balcony railing, restoring its glass material instead of
