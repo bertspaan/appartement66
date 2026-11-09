@@ -1,8 +1,9 @@
+import {addPianoBookcase} from './piano-bookcase';
 import {addWoodenDoor} from './wooden-doors';
 import * as T from 'three';
 import {kitchen} from './kitchen-layout';
 type Point = readonly [number, number];
-export type HallwayMode = 'sliding'|'none'|'short-wall';
+export type HallwayMode = 'sliding'|'none'|'bookcase';
 // Piano front, measured from the bedroom wall centre (including rear clearance).
 const pianoWallOffset=.38,pianoFrontDepth=.32;
 // Metres in the imported apartment's coordinate system. Traced approximately
@@ -28,7 +29,7 @@ export function getHallwayEnd(): Point {
  const t=((start[0]-a[0])*dx+(start[1]-a[1])*dz)/(dx*dx+dz*dz);
  return [a[0]+t*dx,a[1]+t*dz];
 }
-export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='short-wall'){
+export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='bookcase'){
  group.name='Room layout from hand sketch';
  const height=2.62;
  function segment(a:Point,b:Point,thickness=.1,h=height,y=h/2,material?:T.Material){
@@ -64,10 +65,13 @@ export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='s
  const end=getHallwayEnd(),start=sketch.hallwayStart;
  const dx=end[0]-start[0],dz=end[1]-start[1],len=Math.hypot(dx,dz);
  const at=(distance:number,offset=0):Point=>[start[0]+dx/len*distance-dz/len*offset,start[1]+dz/len*distance+dx/len*offset];
- if(hallway==='short-wall'){
-  // Same line as the glazed partition, projecting from the bedroom wall beside
-  // the piano just as far as its front; the stool is not part of this depth.
-  segment(at(len-pianoWallOffset-pianoFrontDepth),end).name='Full-height wall beside piano';
+ if(hallway==='bookcase'){
+  // Replace the former short wall with a shallow bookcase. Bias its depth
+  // toward the hall to keep the acoustic piano clear of its open front.
+  const centre=at(len-(pianoWallOffset+pianoFrontDepth)/2,-.08);
+  const bookcase=addPianoBookcase(group,pianoWallOffset+pianoFrontDepth);
+  bookcase.position.set(centre[0],0,centre[1]);
+  bookcase.rotation.y=-Math.atan2(dz,dx);
   return;
  }
  const frosted=()=>new T.MeshPhysicalMaterial({color:'#d8ece8',roughness:.72,metalness:0,transmission:.35,thickness:.025,transparent:true,opacity:.68,side:T.DoubleSide,depthWrite:false});

@@ -21,7 +21,7 @@ try{
   if(app.stats().furnitureBuilds!==initial.furnitureBuilds)throw new Error('Lighting change rebuilds furniture');
   for(let i=0;i<3;i++){
    app.update({...options,tipAge:'teen',instrument:'nord',doorsOpen:true,hallway:'none'});await wait();
-   app.update({...options,hallway:'short-wall'});await wait();
+   app.update({...options,hallway:'bookcase'});await wait();
    app.update(options);await wait();
   }
   const restored=app.stats();

@@ -14,7 +14,7 @@
  let tipAge:'child'|'teen'='child';
  let instrument:'upright'|'nord'='nord';
  let floor='yellow-concrete',light='day',furniture=true,windowBookshelves=false,kitchenRack=false,doorOpen=0,doorsOpen=false;
- let hallway:HallwayMode='short-wall';
+ let hallway:HallwayMode='bookcase';
  let ready=false,error='',hint='Het appartement laden…',mode='orbit';
  function update(){api?.update({floor,light,furniture,windowBookshelves,kitchenRack,doorOpen,hallway,doorsOpen,instrument,tipAge});}
  $: if(ready && api) api.update({floor,light,furniture,windowBookshelves,kitchenRack,doorOpen,hallway,doorsOpen,instrument,tipAge});
@@ -49,7 +49,7 @@
    <fieldset class="instrument" disabled={!ready}><legend><span>Hal</span></legend>
    <label class="check"><input type="radio" name="hallway" value="sliding" bind:group={hallway}/>Schuifdeur, lichtdoorlatend</label>
    <label class="check"><input type="radio" name="hallway" value="none" bind:group={hallway}/>Niets</label>
-   <label class="check"><input type="radio" name="hallway" value="short-wall" bind:group={hallway}/>Klein muurtje naast piano</label>
+   <label class="check"><input type="radio" name="hallway" value="bookcase" bind:group={hallway}/>Boekenkast naast piano</label>
    {#if hallway==='sliding'}<div class="dimensions"><label for="door">Schuifdeur <output>{Math.round(doorOpen*100)}% open</output></label><input id="door" type="range" min="0" max="1" step=".01" bind:value={doorOpen}/></div>{/if}
    </fieldset>
    <fieldset disabled={!ready}><legend><span>Deuren</span></legend><label class="check"><input type="checkbox" bind:checked={doorsOpen}/>Deuren 45° open</label></fieldset>

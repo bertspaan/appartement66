@@ -14,7 +14,7 @@
     apartment=await createApartment(host,()=>{});
     if(disposed){apartment.destroy();return;}
     apartment.view('preview');
-    apartment.update({floor:'yellow-concrete',light:'day',furniture:true,windowBookshelves:false,kitchenRack:false,doorOpen:0,hallway:'short-wall',doorsOpen:false,instrument:'nord',tipAge:'child'});
+    apartment.update({floor:'yellow-concrete',light:'day',furniture:true,windowBookshelves:false,kitchenRack:false,doorOpen:0,hallway:'bookcase',doorsOpen:false,instrument:'nord',tipAge:'child'});
     await document.fonts.ready;
     // Let the renderer draw the updated furniture before declaring the image ready.
     await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
