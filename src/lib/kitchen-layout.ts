@@ -1,10 +1,17 @@
 // IKEA planner layout, November 2026. Metres from the model's left inner wall.
-// Six 60 cm modules, with 55.5 cm at the window side and 2.5 cm at the return.
+// Five 60 cm base modules; fridge against the end of the short service wall.
 // Connection drawing: KO at 1.930 m; water/drain are only shown schematically.
 export const kitchen = {
  leftWall: -4.66,
  moduleWidth: .60,
- fridgeX: -3.805,
+ // FAB32 envelope: 601 × 1968 × 768 mm including handle. Back clearance is
+ // provisional; check the selected appliance's installation requirements.
+ fridgeX: -.894,
+ fridgeZ: -2.2655,
+ fridgeRotation: -Math.PI/2,
+ fridgeWidth: .601,
+ fridgeHeight: 1.968,
+ fridgeDepth: .768,
  leftWorktopX: -3.205,
  hobX: -2.605,
  dishwasherX: -2.005,

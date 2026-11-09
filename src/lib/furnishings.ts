@@ -211,9 +211,8 @@ export function addKitchenAppliances(parent:T.Group){
  for(const x of [-.20,.20]){const knob=mesh(oven,new T.CylinderGeometry(.024,.024,.018,20),material('#434a4d',.5),x,.79,.045);knob.rotation.x=Math.PI/2;}
  box(oven,0,.79,.033,.12,.038,.009,'#172625');
  for(let i=0;i<5;i++)box(oven,-.16+i*.08,.15,.025,.055,.009,.008,'#171d20');
- // Matching 60 cm worktop cabinets separate the fridge from the hob and
- // complete the run to the right of the sink, against the service return.
- for(const [name,x] of [['Worktop cabinet beside fridge',kitchen.leftWorktopX],['Worktop cabinet beside sink',kitchen.rightWorktopX]] as const){
+ // Matching worktop cabinets at both ends of the hob/dishwasher/sink run.
+ for(const [name,x] of [['Worktop cabinet beside hob',kitchen.leftWorktopX],['Worktop cabinet beside sink',kitchen.rightWorktopX]] as const){
  const cabinet=new T.Group();cabinet.name=name;cabinet.position.set(x,0,-3.47);group.add(cabinet);
  box(cabinet,0,.045,0,.56,.09,.53,'#4a4842');
  box(cabinet,0,.50,0,.60,.82,.60,'#b89d79');
@@ -234,16 +233,40 @@ export function addKitchenAppliances(parent:T.Group){
  for(let i=0;i<3;i++)box(dishwasher,.125+i*.023,.81,.042,.013,.014,.002,'#91bca9');
  for(const x of [-.23,-.17]){const button=mesh(dishwasher,new T.CylinderGeometry(.011,.011,.007,16),material('#526164',.5),x,.81,.04);button.rotation.x=Math.PI/2;}
  box(dishwasher,0,.06,-.012,.55,.10,.025,'#454e4d');
- // Fridge at the left end, leaving 55.5 cm clear beside the window wall.
- // Handles on the left, matching the user’s right-hinged fridge doors.
- const fridge=new T.Group();fridge.name='Fridge-freezer';fridge.position.set(kitchen.fridgeX,0,-3.44);group.add(fridge);
- box(fridge,0,1.005,0,.60,2.01,.65,'#c1c5c3');
- box(fridge,0,.055,.02,.53,.10,.57,'#414747');
- box(fridge,0,.43,.336,.585,.70,.035,'#d7dad6');
- box(fridge,0,1.395,.336,.585,1.20,.035,'#d7dad6');
- box(fridge,-.235,.69,.38,.025,.19,.045,'#818b8c');
- box(fridge,-.235,.96,.38,.025,.25,.045,'#818b8c');
+ addSmegFridge(group);
  return group;
+}
+
+function addSmegFridge(parent:T.Group){
+ // Stylised water-green SMEG FAB32LPG6, using the manufacturer's envelope.
+ // https://www.smeg.com/nl/products/FAB32LPG6
+ const fridge=new T.Group();fridge.name='SMEG FAB32 — water green';
+ fridge.position.set(kitchen.fridgeX,0,kitchen.fridgeZ);
+ fridge.rotation.y=kitchen.fridgeRotation;parent.add(fridge);
+ const enamel=new T.MeshStandardMaterial({color:'#a6cbbb',roughness:.24,metalness:.08});
+ const chrome=new T.MeshStandardMaterial({color:'#d7dfdf',roughness:.21,metalness:.85});
+ const seal=material('#61746c');
+ function rounded(x:number,y:number,z:number,w:number,h:number,d:number,r:number,mat:T.Material){return mesh(fridge,new RoundedBoxGeometry(w,h,d,4,r),mat,x,y,z);}
+ rounded(0,.994,-.039,kitchen.fridgeWidth,1.948,.650,.045,enamel);
+ box(fridge,0,.03,-.04,.50,.06,.55,'#414747');
+ for(const [y,h] of [[.3835,.695],[1.3505,1.215]]){
+  rounded(0,y,.289,.590,h+.008,.014,.006,seal);
+  rounded(0,y,.325,.591,h,.078,.035,enamel);
+ }
+ // Left-hinged doors; chrome pull handles on the right, facing the kitchen.
+ for(const [y,h] of [[.60,.18],[.94,.25]]){
+  for(const end of [-1,1])rounded(.221,y+end*(h/2-.018),.376,.025,.025,.04,.01,chrome);
+  rounded(.221,y,.395,.023,h,.018,.008,chrome);
+ }
+ // Raised-looking wordmark, retained as a texture in the downloadable GLB.
+ const label=document.createElement('canvas');label.width=512;label.height=128;
+ const context=label.getContext('2d')!;context.textAlign='center';context.textBaseline='middle';
+ context.font='600 78px Arial';context.fillStyle='#f0f5f2';context.fillText('S M E G',256,63);
+ context.fillStyle='#899c94';context.fillText('S M E G',256,66);
+ const texture=new T.CanvasTexture(label);texture.colorSpace=T.SRGBColorSpace;
+ const badge=mesh(fridge,new T.PlaneGeometry(.245,.061),new T.MeshStandardMaterial({map:texture,transparent:true,roughness:.3,metalness:.55}),0,1.64,.365);
+ badge.castShadow=false;
+ return fridge;
 }
 
 export function addNordElectro(parent:T.Group){
