@@ -46,6 +46,8 @@ The kitchen follows the November 2026 IKEA planner arrangement: five 60 cm base 
 
 The kitchen sink is a modelled LÅNGUDDEN 56 × 52.5 cm stainless-steel sink, with a 50 × 40 × 18 cm bowl and softly rounded corners/bottom. The rim, drain, overflow and arched mixer are modelled details; corner radii and mixer styling are approximate. The runtime worktop has a real opening, and the source cabinet lid is removed beneath it so the basin remains hollow. Source: https://www.ikea.com/nl/nl/p/langudden-inbouwspoelbak-1-bak-roestvrij-staal-50315173/
 
+A 60 cm RYTMISK wall hood is centred over the hob in recirculation configuration, with NYTTIG FIL 400 charcoal filtration and side air outlets. The model uses the official 598 × 471 mm footprint and minimum 715 mm recirculation height, with its underside 660 mm above the model worktop. The high kitchen shelf has a 700 mm opening around the chimney. There is no exhaust duct into the ceiling. Details of the folded canopy, filters, controls and lighting are approximate. Product and installation reference: https://www.ikea.com/nl/nl/p/rytmisk-afzuigkap-wand-roestvrij-staal-80388969/
+
 The bedroom divider centre is x=1.94 m, so its 5 cm half-thickness reaches the start of the source window frame at x=1.99 m (43 cm farther right than before). Tip has an approximate 1.04 × 2.10 m loft bunk with toys below. The upright piano is 1.35 m wide and follows the diagonal on the living-room side of the translucent partition. The baby-blue floor lamp follows the supplied articulated-lamp reference; its dimensions are approximate. Dining, bedside and child-room lights are also included and illuminate in evening mode. Furniture is shown by default.
 
 ## GitHub Pages

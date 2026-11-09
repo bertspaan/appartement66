@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {kitchen as kitchenLayout} from './kitchen-layout';
 import {getHallwayEnd,sketch} from './sketch-layout';
 
 // Shelf top 35 cm below the 2.62 m ceiling; 22 cm usable depth.
@@ -108,7 +109,10 @@ export function addHighShelves(parent:T.Group){
  const offset=(p:Point):Point=>[p[0]-dz/len*.05,p[1]+dx/len*.05];
  run('Shelf above piano',offset(end),offset(a));
  // Back kitchen wall and the solid service-core return wall; clear of facade windows.
- run('Kitchen back-wall shelf',[-4.66,-3.79],[-.48,-3.79],true);
+ // Leave the recirculation chimney and its side outlets clear of the shelf.
+ const hoodLeft=kitchenLayout.hobX-kitchenLayout.hoodShelfGap/2,hoodRight=kitchenLayout.hobX+kitchenLayout.hoodShelfGap/2;
+ run('Kitchen back-wall shelf left',[-4.66,-3.79],[hoodLeft,-3.79],true);
+ run('Kitchen back-wall shelf right',[hoodRight,-3.79],[-.48,-3.79],true);
  run('Kitchen return-wall shelf',[-.48,-3.79],[-.48,-1.97],true);
  return group;
 }

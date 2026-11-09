@@ -20,4 +20,7 @@ export const kitchen = {
  sinkX: -1.405,
  rightWorktopX: -.805,
  worktopHeight: .95,
+ hoodClearance: .66,
+ hoodHeight: .715,
+ hoodShelfGap: .70,
 };
