@@ -13,11 +13,11 @@
  });
  let tipAge:'child'|'teen'='child';
  let instrument:'upright'|'nord'='nord';
- let floor='yellow-concrete',light='day',furniture=true,windowBookshelves=false,doorOpen=0,doorsOpen=false;
+ let floor='yellow-concrete',light='day',furniture=true,windowBookshelves=false,kitchenRack=false,doorOpen=0,doorsOpen=false;
  let hallway:HallwayMode='short-wall';
  let ready=false,error='',hint='Het appartement laden…',mode='orbit';
- function update(){api?.update({floor,light,furniture,windowBookshelves,doorOpen,hallway,doorsOpen,instrument,tipAge});}
- $: if(ready && api) api.update({floor,light,furniture,windowBookshelves,doorOpen,hallway,doorsOpen,instrument,tipAge});
+ function update(){api?.update({floor,light,furniture,windowBookshelves,kitchenRack,doorOpen,hallway,doorsOpen,instrument,tipAge});}
+ $: if(ready && api) api.update({floor,light,furniture,windowBookshelves,kitchenRack,doorOpen,hallway,doorsOpen,instrument,tipAge});
  function view(v:string){mode=v;api?.view(v);}
  onMount(()=>{let disposed=false;import('$lib/apartment').then(async m=>{const a=await m.createApartment(host,message=>hint=message);if(disposed){a.destroy();return;}api=a;ready=true;update();}).catch(e=>{console.error(e);error='Het model kon niet worden geladen. Vernieuw de pagina om het opnieuw te proberen.';});return()=>{disposed=true;api?.destroy();};});
 </script>
@@ -53,7 +53,7 @@
    {#if hallway==='sliding'}<div class="dimensions"><label for="door">Schuifdeur <output>{Math.round(doorOpen*100)}% open</output></label><input id="door" type="range" min="0" max="1" step=".01" bind:value={doorOpen}/></div>{/if}
    </fieldset>
    <fieldset disabled={!ready}><legend><span>Deuren</span></legend><label class="check"><input type="checkbox" bind:checked={doorsOpen}/>Deuren 45° open</label></fieldset>
-   <fieldset disabled={!ready}><legend><span>Materialen & sfeer</span></legend><label for="floor">Vloerafwerking</label><select id="floor" bind:value={floor}><option value="oak">Naturel eiken</option><option value="concrete">Licht beton</option><option value="yellow-concrete">Lichtgeel geverfd beton</option><option value="walnut">Donker notenhout</option></select><div class="segmented">{#each [['day','Daglicht'],['evening','Avond']] as i}<button class:chosen={light===i[0]} onclick={()=>{light=i[0];update();}} aria-pressed={light===i[0]}>{i[1]}</button>{/each}</div><label class="check"><input type="checkbox" bind:checked={furniture}/>Meubels tonen</label><label class="check"><input type="checkbox" bind:checked={windowBookshelves} disabled={!furniture}/>Boekenkasten naast de ramen</label></fieldset>
+   <fieldset disabled={!ready}><legend><span>Materialen & sfeer</span></legend><label for="floor">Vloerafwerking</label><select id="floor" bind:value={floor}><option value="oak">Naturel eiken</option><option value="concrete">Licht beton</option><option value="yellow-concrete">Lichtgeel geverfd beton</option><option value="walnut">Donker notenhout</option></select><div class="segmented">{#each [['day','Daglicht'],['evening','Avond']] as i}<button class:chosen={light===i[0]} onclick={()=>{light=i[0];update();}} aria-pressed={light===i[0]}>{i[1]}</button>{/each}</div><label class="check"><input type="checkbox" bind:checked={furniture}/>Meubels tonen</label><label class="check"><input type="checkbox" bind:checked={windowBookshelves} disabled={!furniture}/>Boekenkasten naast de ramen</label><label class="check"><input type="checkbox" bind:checked={kitchenRack} disabled={!furniture}/>Stellingkast in de keuken</label></fieldset>
    <fieldset class="instrument" disabled={!ready}><legend><span>Instrument</span></legend>
     <label class="check"><input type="radio" name="instrument" value="upright" bind:group={instrument}/>Akoestische piano</label>
     <label class="check"><input type="radio" name="instrument" value="nord" bind:group={instrument}/>Nord Electro</label>
