@@ -1,4 +1,5 @@
 import {addEntranceFurniture} from './entrance-furniture';
+import {addCardboardHouse} from './cardboard-house';
 import {addStandingDesk} from './standing-desk';
 import {addKitchenRack} from './kitchen-rack';
 import {addOwnedArmchair} from './furnishings';
@@ -93,7 +94,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   if(!previous||previous.tipAge!==o.tipAge){
    clear(tipRoom);
    if(o.tipAge==='teen')addTipTeenRoom(tipRoom,teenPosterTextures);
-   else{addTipBed(tipRoom);addTipAnimals(tipRoom);addTipToyCabinet(tipRoom);addTipMarbleRun(tipRoom);addChildPosters(tipRoom,childPosterTextures);}
+   else{addTipBed(tipRoom);addTipAnimals(tipRoom);addTipToyCabinet(tipRoom);addTipMarbleRun(tipRoom);addChildPosters(tipRoom,childPosterTextures);addCardboardHouse(tipRoom);}
    optimizeScene(tipRoom);furnitureBuilds++;
   }
   if(!previous||previous.instrument!==o.instrument){
