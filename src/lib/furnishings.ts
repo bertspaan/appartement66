@@ -96,16 +96,18 @@ export function addLamps(parent:T.Group){
 export function addKitchenIsland(parent:T.Group){
  // Centred on the dining table; the front edge meets its rear edge at z=-1.825.
  const group=new T.Group();group.name='Kitchen island';group.position.set(-2.65,0,-2.10);parent.add(group);
- // Approximate 1.20 × 0.55 m island, 92 cm worktop height.
- box(group,0,.06,0,1.00,.12,.35,'#4a4842');
- box(group,0,.50,0,1.10,.76,.45,'#b89d79');
- box(group,0,.90,0,1.20,.04,.55,'#e2ddd1');
+ // Keep the cabinet and fronts unchanged; a taller recessed base raises the
+ // preparation surface to 105 cm as a provisional height for a 193 cm user.
+ const lift=kitchen.islandWorktopHeight-.92,plinthHeight=.12+lift;
+ box(group,0,plinthHeight/2,0,1.00,plinthHeight,.35,'#4a4842');
+ box(group,0,.50+lift,0,1.10,.76,.45,'#b89d79');
+ box(group,0,.90+lift,0,1.20,.04,.55,'#e2ddd1');
  // Cabinet fronts and a drawer beneath the worktop, facing the living room.
  for(const x of [-.275,.275]){
-  box(group,x,.40,.234,.538,.55,.025,'#c6ac86');
-  box(group,x,.775,.234,.538,.18,.025,'#c6ac86');
-  box(group,x,.815,.255,.22,.015,.022,'#565950');
-  box(group,x,.645,.255,.22,.015,.022,'#565950');
+  box(group,x,.40+lift,.234,.538,.55,.025,'#c6ac86');
+  box(group,x,.775+lift,.234,.538,.18,.025,'#c6ac86');
+  box(group,x,.815+lift,.255,.22,.015,.022,'#565950');
+  box(group,x,.645+lift,.255,.22,.015,.022,'#565950');
  }
  return group;
 }
