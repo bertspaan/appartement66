@@ -40,7 +40,7 @@ export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='s
  const length=Math.hypot(b[0]-a[0],b[1]-a[1]);
  const along=(distance:number):Point=>[a[0]+(b[0]-a[0])*distance/length,a[1]+(b[1]-a[1])*distance/length];
  // Two provisional bedroom entrances in the diagonal front wall.
- const doors=[[1.88,2.73],[3.40,4.25]];
+ const doors=[[2.08,2.93],[3.40,4.25]]; // Main bedroom shifted 20 cm to the right.
  let cursor=0;
  for(const [index,[start,end]] of doors.entries()){
   segment(along(cursor),along(start));segment(along(start),along(end),.1,.47,2.385);
