@@ -28,7 +28,7 @@ export function getHallwayEnd(): Point {
  const t=((start[0]-a[0])*dx+(start[1]-a[1])*dz)/(dx*dx+dz*dz);
  return [a[0]+t*dx,a[1]+t*dz];
 }
-export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='sliding'){
+export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='short-wall'){
  group.name='Room layout from hand sketch';
  const height=2.62;
  function segment(a:Point,b:Point,thickness=.1,h=height,y=h/2,material?:T.Material){
