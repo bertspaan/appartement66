@@ -13,7 +13,7 @@
  });
  let tipAge:'child'|'teen'='child';
  let instrument:'upright'|'nord'='nord';
- let floor='oak',light='day',furniture=true,windowBookshelves=false,doorOpen=0,doorsOpen=false;
+ let floor='yellow-concrete',light='day',furniture=true,windowBookshelves=false,doorOpen=0,doorsOpen=false;
  let hallway:HallwayMode='short-wall';
  let ready=false,error='',hint='Het appartement laden…',mode='orbit';
  function update(){api?.update({floor,light,furniture,windowBookshelves,doorOpen,hallway,doorsOpen,instrument,tipAge});}
