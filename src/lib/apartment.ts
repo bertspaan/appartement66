@@ -107,7 +107,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   previous={...o};invalidate(shadowsChanged);
  }
  let currentView='orbit';
- function view(mode:string){keys.clear();currentView=mode;if(walk.isLocked)walk.unlock();orbit.enabled=true;camera.up.set(0,1,0);if(mode==='plan'){camera.position.set(-1,23,1.01);orbit.target.set(-1,0,1);}else if(mode==='walk'){camera.position.set(0,1.65,-1.8);camera.lookAt(0,1.65,2);walk.lock();}else{orbit.target.set(-1,.6,1);camera.position.set(-16,13.4,13).multiplyScalar(mode==='preview'?1:.65).add(orbit.target);}orbit.update();invalidate();}
+ function view(mode:string){keys.clear();currentView=mode;if(walk.isLocked)walk.unlock();orbit.enabled=true;orbit.enableDamping=false;orbit.update();orbit.enableRotate=mode!=='plan';camera.up.set(0,1,0);if(mode==='plan'){camera.position.set(-1,23,1.01);orbit.target.set(-1,0,1);}else if(mode==='walk'){camera.position.set(0,1.65,-1.8);camera.lookAt(0,1.65,2);walk.lock();}else{orbit.target.set(-1,.6,1);camera.position.set(-16,13.4,13).multiplyScalar(mode==='preview'?1:.65).add(orbit.target);}orbit.update();orbit.enableDamping=true;invalidate();}
  const keys=new Set<string>();
  const arrowKeys=['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'];
  const down=(e:KeyboardEvent)=>{
