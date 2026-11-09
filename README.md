@@ -72,6 +72,8 @@ Reference: https://svelte.dev/docs/kit/adapter-static#GitHub-Pages
 
 The two balcony rectangles are modelled as 1.00 m tall planters in their source footprints (1.60 × 2.20 m and 2.20 × 1.40 m), with soil, mixed broad-leaved shrubs, grasses and flowers. Plant choices are visual placeholders. Original low landscaping trays are hidden in the app and visible-only exports. The planters remain visible independently of the furniture toggle.
 
+The two narrow living-room bookcases beside the windows are hidden by default. The “Boekenkasten naast de ramen” checkbox toggles both cabinets, including their books and audio equipment. It works within “Meubels tonen”, and the model download follows the visible selection.
+
 ## Sofa
 
 The living-room sofa is a modelled approximation of the FEST Edge 3-seater in anthracite, using the official 254 × 103 × 71 cm dimensions, 43 cm seat height and 62 cm seat depth. Two seat modules, broad arms, low feet and visible seat seams are represented. The exact anthracite fabric is approximate. Source: https://www.festamsterdam.com/products/edge-3-zits-bank

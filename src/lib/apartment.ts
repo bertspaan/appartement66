@@ -25,7 +25,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {PointerLockControls} from 'three/addons/controls/PointerLockControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
-export type Options={floor:string;light:string;furniture:boolean;doorOpen:number;hallway:HallwayMode;doorsOpen:boolean;instrument:'upright'|'nord';tipAge:'child'|'teen'};
+export type Options={floor:string;light:string;furniture:boolean;windowBookshelves:boolean;doorOpen:number;hallway:HallwayMode;doorsOpen:boolean;instrument:'upright'|'nord';tipAge:'child'|'teen'};
 export async function createApartment(host:HTMLElement,onState:(message:string)=>void){
  const scene=new T.Scene();
  const dayBackground='linear-gradient(155deg, #fff9ee 0%, #eef0b7 45%, #c6d843 100%)';
@@ -62,6 +62,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  const partitions=new T.Group();partitions.name='Proposed bedroom partitions';model.add(partitions);
  const furniture=new T.Group();furniture.name='Proposed furniture';model.add(furniture);
  const tipRoom=new T.Group(),instrument=new T.Group();tipRoom.name='Tip room variant';instrument.name='Instrument variant';furniture.add(tipRoom,instrument);
+ const windowBookshelves=addColumnBookshelves(furniture);optimizeScene(windowBookshelves);windowBookshelves.visible=false;
  const hemi=new T.HemisphereLight('#dcecff','#a19a91',2);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff1da',3);sun.position.set(-4,9,8);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-9,right:9,top:9,bottom:-9,near:.5,far:30});sun.shadow.normalBias=.025;scene.add(sun);
  const lamps=addLamps(model);
@@ -77,6 +78,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
  let furnitureBuilds=0;
  function update(o:Options){
   furniture.visible=o.furniture;
+  windowBookshelves.visible=o.windowBookshelves;
   (finish.material as T.MeshStandardMaterial).color.set(o.floor==='oak'?'#b58d60':o.floor==='concrete'?'#b8b8b3':o.floor==='yellow-concrete'?'#e8d88d':'#73523e');
   if(!previous||previous.light!==o.light){
    hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;host.style.background=o.light==='evening'?eveningBackground:dayBackground;lamps.setEvening(o.light==='evening');balconyLights.setEvening(o.light==='evening');
@@ -87,7 +89,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   setWoodenDoorsOpen(model,o.doorsOpen);
   if(!previous){
    const fixed=new T.Group();fixed.name='Fixed furniture';furniture.add(fixed);
-   addOwnedArmchair(fixed);addKitchenRack(fixed);addStandingDesk(fixed);addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);addColumnBookshelves(fixed);
+   addOwnedArmchair(fixed);addKitchenRack(fixed);addStandingDesk(fixed);addEntranceFurniture(fixed);addOwnedBed(fixed);addStorageShelves(fixed);addFestEdgeSofa(fixed);
    addBalconyBistroTable(fixed);addRectangularBalconyTable(fixed);addKitchenIsland(fixed);addDiningTable(fixed);addKitchenAppliances(fixed);addCounterAppliances(fixed);
    optimizeScene(fixed);furnitureBuilds++;
   }
@@ -101,7 +103,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
    clear(instrument);if(o.instrument==='nord')addNordElectro(instrument);else addPiano(instrument);
    optimizeScene(instrument);furnitureBuilds++;
   }
-  const shadowsChanged=!previous||(['light','furniture','doorOpen','hallway','doorsOpen','tipAge','instrument'] as const).some(key=>previous![key]!==o[key]);
+  const shadowsChanged=!previous||(['light','furniture','windowBookshelves','doorOpen','hallway','doorsOpen','tipAge','instrument'] as const).some(key=>previous![key]!==o[key]);
   previous={...o};invalidate(shadowsChanged);
  }
  let currentView='orbit';

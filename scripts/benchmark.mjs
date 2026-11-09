@@ -9,7 +9,7 @@ try{
   document.body.innerHTML='<div id="benchmark" style="width:1200px;height:800px"></div>';
   const {createApartment}=await import(`${base}src/lib/apartment.ts`);
   const app=await createApartment(document.getElementById('benchmark'),()=>{});
-  const options={floor:'oak',light:'day',furniture:true,doorOpen:0,hallway:'sliding',doorsOpen:false,instrument:'upright',tipAge:'child'};
+  const options={floor:'oak',light:'day',furniture:true,windowBookshelves:false,doorOpen:0,hallway:'sliding',doorsOpen:false,instrument:'upright',tipAge:'child'};
   const wait=()=>new Promise(r=>setTimeout(r,250));
   app.update(options);await wait();const initial=app.stats();
   const start=performance.now();app.update({...options,floor:'concrete'});const updateMs=performance.now()-start;
