@@ -7,7 +7,9 @@ export const kitchen = {
  // FAB32 envelope: 601 × 1968 × 768 mm including handle. Back clearance is
  // provisional; check the selected appliance's installation requirements.
  fridgeX: -.894,
- fridgeZ: -2.2655,
+ fridgeZ: -1.9655,
+ fridgeWallX: -.445,
+ fridgeWallStartZ: -1.965,
  fridgeRotation: -Math.PI/2,
  fridgeWidth: .601,
  fridgeHeight: 1.968,

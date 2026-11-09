@@ -1,5 +1,6 @@
 import {addWoodenDoor} from './wooden-doors';
 import * as T from 'three';
+import {kitchen} from './kitchen-layout';
 type Point = readonly [number, number];
 export type HallwayMode = 'sliding'|'none'|'short-wall';
 // Piano front, measured from the bedroom wall centre (including rear clearance).
@@ -55,6 +56,10 @@ export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='s
  segment(a,[a[0],3.79]);
  const dividerZ=a[1]+(b[1]-a[1])*(sketch.bedroomDividerX-a[0])/(b[0]-a[0]);
  segment([sketch.bedroomDividerX,dividerZ],[sketch.bedroomDividerX,3.79]);
+ // Extend the existing 7 cm service wall to the relocated fridge's room-side edge.
+ // This wall remains in every hallway mode, including with furniture hidden.
+ segment([kitchen.fridgeWallX,kitchen.fridgeWallStartZ],
+  [kitchen.fridgeWallX,kitchen.fridgeZ+kitchen.fridgeWidth/2],.07).name='Short wall behind fridge';
  if(hallway==='none')return;
  const end=getHallwayEnd(),start=sketch.hallwayStart;
  const dx=end[0]-start[0],dz=end[1]-start[1],len=Math.hypot(dx,dz);
