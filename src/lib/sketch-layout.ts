@@ -1,6 +1,9 @@
 import {addWoodenDoor} from './wooden-doors';
 import * as T from 'three';
 type Point = readonly [number, number];
+export type HallwayMode = 'sliding'|'none'|'short-wall';
+// Piano front, measured from the bedroom wall centre (including rear clearance).
+const pianoWallOffset=.38,pianoFrontDepth=.32;
 // Metres in the imported apartment's coordinate system. Traced approximately
 // from PXL_20260905_101619644.jpg, using the facade and service core as anchors.
 // 30 cm clear along the exterior wall from the entrance jamb at z=-.84.
@@ -24,7 +27,7 @@ export function getHallwayEnd(): Point {
  const t=((start[0]-a[0])*dx+(start[1]-a[1])*dz)/(dx*dx+dz*dz);
  return [a[0]+t*dx,a[1]+t*dz];
 }
-export function addSketchLayout(group:T.Group,open:number,hallwayWall=true){
+export function addSketchLayout(group:T.Group,open:number,hallway:HallwayMode='sliding'){
  group.name='Room layout from hand sketch';
  const height=2.62;
  function segment(a:Point,b:Point,thickness=.1,h=height,y=h/2,material?:T.Material){
@@ -52,10 +55,16 @@ export function addSketchLayout(group:T.Group,open:number,hallwayWall=true){
  segment(a,[a[0],3.79]);
  const dividerZ=a[1]+(b[1]-a[1])*(sketch.bedroomDividerX-a[0])/(b[0]-a[0]);
  segment([sketch.bedroomDividerX,dividerZ],[sketch.bedroomDividerX,3.79]);
- if(!hallwayWall)return;
+ if(hallway==='none')return;
  const end=getHallwayEnd(),start=sketch.hallwayStart;
  const dx=end[0]-start[0],dz=end[1]-start[1],len=Math.hypot(dx,dz);
  const at=(distance:number,offset=0):Point=>[start[0]+dx/len*distance-dz/len*offset,start[1]+dz/len*distance+dx/len*offset];
+ if(hallway==='short-wall'){
+  // Same line as the glazed partition, projecting from the bedroom wall beside
+  // the piano just as far as its front; the stool is not part of this depth.
+  segment(at(len-pianoWallOffset-pianoFrontDepth),end).name='Full-height wall beside piano';
+  return;
+ }
  const frosted=()=>new T.MeshPhysicalMaterial({color:'#d8ece8',roughness:.72,metalness:0,transmission:.35,thickness:.025,transparent:true,opacity:.68,side:T.DoubleSide,depthWrite:false});
  const frame=()=>new T.MeshStandardMaterial({color:'#566a6b',roughness:.65});
  // Keep the full 1.10 m opening and 1.12 m slide on the shorter partition.
@@ -76,6 +85,6 @@ export function addSketchLayout(group:T.Group,open:number,hallwayWall=true){
 export function getInstrumentPlacement(){
  const a=sketch.bedroomFrontLeft,b=sketch.bedroomFrontRight;
  const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz);
- const along=.98,offset=.38;
+ const along=.98,offset=pianoWallOffset;
  return {x:a[0]+dx/length*along+dz/length*offset,z:a[1]+dz/length*along-dx/length*offset,rotation:-Math.atan2(dz,dx)};
 }

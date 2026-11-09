@@ -9,7 +9,7 @@ try{
   document.body.innerHTML='<div id="benchmark" style="width:1200px;height:800px"></div>';
   const {createApartment}=await import(`${base}src/lib/apartment.ts`);
   const app=await createApartment(document.getElementById('benchmark'),()=>{});
-  const options={floor:'oak',light:'day',furniture:true,doorOpen:0,hallwayWall:true,doorsOpen:false,instrument:'upright',tipAge:'child'};
+  const options={floor:'oak',light:'day',furniture:true,doorOpen:0,hallway:'sliding',doorsOpen:false,instrument:'upright',tipAge:'child'};
   const wait=()=>new Promise(r=>setTimeout(r,250));
   app.update(options);await wait();const initial=app.stats();
   const start=performance.now();app.update({...options,floor:'concrete'});const updateMs=performance.now()-start;
@@ -20,7 +20,8 @@ try{
   app.update({...options,light:'evening'});await wait();
   if(app.stats().furnitureBuilds!==initial.furnitureBuilds)throw new Error('Lighting change rebuilds furniture');
   for(let i=0;i<3;i++){
-   app.update({...options,tipAge:'teen',instrument:'nord',doorsOpen:true,hallwayWall:false});await wait();
+   app.update({...options,tipAge:'teen',instrument:'nord',doorsOpen:true,hallway:'none'});await wait();
+   app.update({...options,hallway:'short-wall'});await wait();
    app.update(options);await wait();
   }
   const restored=app.stats();

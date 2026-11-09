@@ -32,7 +32,7 @@ SvelteKit: https://github.com/sveltejs/kit (MIT)
 
 ## Hand sketch layout
 
-The default layout now follows `PXL_20260905_101619644.jpg`: two bedrooms along the bottom facade, a diagonal bedroom front wall, and a short slanted translucent hallway/living partition. The sliding door control moves the leaf over the fixed panel. Coordinates are traced approximately and stored in `src/lib/sketch-layout.ts`. Bedroom entry positions and frosted material properties are provisional. The original service-core geometry is shown in sketch mode.
+The default layout now follows `PXL_20260905_101619644.jpg`: two bedrooms along the bottom facade, a diagonal bedroom front wall, and a short slanted translucent hallway/living partition. The Hall controls offer a translucent sliding partition (the default), no partition, or a full-height short wall beside the piano. The short wall follows the same line from the bedroom wall for 70 cm, matching the piano front including its rear clearance; it is 10 cm thick and 2.62 m high. The sliding-door control is shown only in sliding mode and moves the leaf over the fixed panel. Coordinates are traced approximately and stored in `src/lib/sketch-layout.ts`. Bedroom entry positions and frosted material properties are provisional. The original service-core geometry is shown in sketch mode.
 
 ## Wraparound balcony
 

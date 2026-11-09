@@ -19,13 +19,13 @@ import {addBalconyStringLights} from './balcony-lights';
 import {addHighShelves} from './high-shelves';
 import {addPaintings} from './paintings';
 import {addPlanters} from './planters';
-import {addSketchLayout} from './sketch-layout';
+import {addSketchLayout,type HallwayMode} from './sketch-layout';
 import {addRectangularBalconyTable,addBalconyBistroTable,addTipBed,addTipTeenRoom,addPiano,addNordElectro,addLamps,addKitchenIsland,addFestEdgeSofa,addColumnBookshelves,addKitchenAppliances} from './furnishings';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {PointerLockControls} from 'three/addons/controls/PointerLockControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
-export type Options={floor:string;light:string;furniture:boolean;doorOpen:number;hallwayWall:boolean;doorsOpen:boolean;instrument:'upright'|'nord';tipAge:'child'|'teen'};
+export type Options={floor:string;light:string;furniture:boolean;doorOpen:number;hallway:HallwayMode;doorsOpen:boolean;instrument:'upright'|'nord';tipAge:'child'|'teen'};
 export async function createApartment(host:HTMLElement,onState:(message:string)=>void){
  const scene=new T.Scene();
  const dayBackground='linear-gradient(155deg, #fff9ee 0%, #eef0b7 45%, #c6d843 100%)';
@@ -81,8 +81,8 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
   if(!previous||previous.light!==o.light){
    hemi.intensity=o.light==='evening'?.35:2;sun.intensity=o.light==='evening'?.12:3;host.style.background=o.light==='evening'?eveningBackground:dayBackground;lamps.setEvening(o.light==='evening');balconyLights.setEvening(o.light==='evening');
   }
-  if(!previous||previous.doorOpen!==o.doorOpen||previous.hallwayWall!==o.hallwayWall){
-   clear(partitions);addSketchLayout(partitions,o.doorOpen,o.hallwayWall);
+  if(!previous||previous.doorOpen!==o.doorOpen||previous.hallway!==o.hallway){
+   clear(partitions);addSketchLayout(partitions,o.doorOpen,o.hallway);
   }
   setWoodenDoorsOpen(model,o.doorsOpen);
   if(!previous){
@@ -101,7 +101,7 @@ export async function createApartment(host:HTMLElement,onState:(message:string)=
    clear(instrument);if(o.instrument==='nord')addNordElectro(instrument);else addPiano(instrument);
    optimizeScene(instrument);furnitureBuilds++;
   }
-  const shadowsChanged=!previous||(['light','furniture','doorOpen','hallwayWall','doorsOpen','tipAge','instrument'] as const).some(key=>previous![key]!==o[key]);
+  const shadowsChanged=!previous||(['light','furniture','doorOpen','hallway','doorsOpen','tipAge','instrument'] as const).some(key=>previous![key]!==o[key]);
   previous={...o};invalidate(shadowsChanged);
  }
  let currentView='orbit';
